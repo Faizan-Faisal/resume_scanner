@@ -1,0 +1,4 @@
+{"level": "INFO", "time": "2026-02-25 23:22:46", "message": "Incoming request GET http://127.0.0.1:8000/", "module": "main", "funcName": "logging_middleware", "line_no": 12}
+{"level": "INFO", "time": "2026-02-25 23:22:46", "message": "Root endpoint called", "module": "main", "funcName": "root", "line_no": 22}
+{"level": "INFO", "time": "2026-02-25 23:22:46", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 14}
+{"level": "INFO", "time": "2026-02-25 23:31:52", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
