@@ -2,3 +2,34 @@
 {"level": "INFO", "time": "2026-02-25 23:22:46", "message": "Root endpoint called", "module": "main", "funcName": "root", "line_no": 22}
 {"level": "INFO", "time": "2026-02-25 23:22:46", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 14}
 {"level": "INFO", "time": "2026-02-25 23:31:52", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-25 23:34:42", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-25 23:35:47", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-25 23:36:51", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-25 23:37:42", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-25 23:40:25", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 00:48:02", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:19:35", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:20:14", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:20:17", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 01:20:38", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:20:41", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 01:22:20", "message": "Incoming request GET http://localhost:8000/", "module": "main", "funcName": "logging_middleware", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:22:20", "message": "Root endpoint called", "module": "main", "funcName": "root", "line_no": 24}
+{"level": "INFO", "time": "2026-02-26 01:22:20", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 15}
+{"level": "INFO", "time": "2026-02-26 01:22:20", "message": "Incoming request GET http://localhost:8000/favicon.ico", "module": "main", "funcName": "logging_middleware", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:22:20", "message": "Response status: 404", "module": "main", "funcName": "logging_middleware", "line_no": 15}
+{"level": "INFO", "time": "2026-02-26 01:22:34", "message": "Incoming request GET http://localhost:8000/redis-test", "module": "main", "funcName": "logging_middleware", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:22:34", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 15}
+{"level": "INFO", "time": "2026-02-26 01:24:06", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:24:09", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 01:28:16", "message": "Incoming request GET http://localhost:8000/redis-pubsub-test", "module": "main", "funcName": "logging_middleware", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:28:16", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 15}
+{"level": "INFO", "time": "2026-02-26 01:28:25", "message": "Incoming request GET http://localhost:8000/redis-pubsub-test", "module": "main", "funcName": "logging_middleware", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:28:25", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 15}
+{"level": "INFO", "time": "2026-02-26 01:30:17", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:30:20", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 01:31:59", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:32:01", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 01:33:24", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 01:33:26", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "ERROR", "time": "2026-02-26 06:01:11", "message": "Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.", "module": "redis_client", "funcName": "<module>", "line_no": 22}
