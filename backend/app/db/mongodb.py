@@ -10,6 +10,9 @@ MONGO_URI = os.getenv("MONGO_URI")
 try:
     client = MongoClient(MONGO_URI)
     db = client["resume_saas"]
+        # Define collections here
+    jobs_collection = db["jobs"]
+    resumes_collection = db["resumes"]
     logger.info(f"Connected to MongoDB at {MONGO_URI}")
 except Exception as e:
     logger.error(f"MongoDB connection failed: {str(e)}")

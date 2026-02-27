@@ -33,3 +33,171 @@
 {"level": "INFO", "time": "2026-02-26 01:33:24", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
 {"level": "INFO", "time": "2026-02-26 01:33:26", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
 {"level": "ERROR", "time": "2026-02-26 06:01:11", "message": "Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.", "module": "redis_client", "funcName": "<module>", "line_no": 22}
+{"level": "INFO", "time": "2026-02-26 06:04:48", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 06:04:48", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 8}
+{"level": "INFO", "time": "2026-02-26 06:05:55", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:05:58", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 06:06:13", "message": "Incoming request GET http://localhost:8000/", "module": "main", "funcName": "logging_middleware", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:06:13", "message": "Root endpoint called", "module": "main", "funcName": "root", "line_no": 24}
+{"level": "INFO", "time": "2026-02-26 06:06:13", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 15}
+{"level": "INFO", "time": "2026-02-26 06:06:13", "message": "Incoming request GET http://localhost:8000/favicon.ico", "module": "main", "funcName": "logging_middleware", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:06:13", "message": "Response status: 404", "module": "main", "funcName": "logging_middleware", "line_no": 15}
+{"level": "INFO", "time": "2026-02-26 06:06:25", "message": "Incoming request GET http://localhost:8000/push-job", "module": "main", "funcName": "logging_middleware", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:06:25", "message": "Processing resume_id: resume_123", "module": "worker", "funcName": "start_worker", "line_no": 12}
+{"level": "INFO", "time": "2026-02-26 06:06:25", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 15}
+{"level": "INFO", "time": "2026-02-26 06:06:30", "message": "Finished processing resume_id: resume_123", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 06:37:26", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:37:28", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 06:37:46", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:37:48", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 06:38:25", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:38:27", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 06:39:05", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:39:07", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 06:42:28", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:42:30", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 06:44:32", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:44:35", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-26 06:46:16", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-26 06:46:18", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 12:28:14", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "ERROR", "time": "2026-02-27 12:28:41", "message": "Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.", "module": "redis_client", "funcName": "<module>", "line_no": 22}
+{"level": "INFO", "time": "2026-02-27 12:31:51", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 12:31:53", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 12:32:01", "message": "Incoming request GET http://127.0.0.1:8000/", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 12:32:01", "message": "Root endpoint called", "module": "main", "funcName": "root", "line_no": 69}
+{"level": "INFO", "time": "2026-02-27 12:32:01", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 12:32:01", "message": "Incoming request GET http://127.0.0.1:8000/favicon.ico", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 12:32:01", "message": "Response status: 404", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 12:32:17", "message": "Incoming request GET http://127.0.0.1:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 12:32:17", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 12:32:18", "message": "Incoming request GET http://127.0.0.1:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 12:32:18", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 12:35:36", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 12:35:38", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 12:36:05", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 12:36:08", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 12:36:13", "message": "Incoming request GET http://127.0.0.1:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 12:36:13", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 12:36:13", "message": "Incoming request GET http://127.0.0.1:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 12:36:13", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 12:36:58", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 12:36:58", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 8}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Incoming request POST http://127.0.0.1:8000/resumes/jobs/699fa96424ee0687b01aa880/resumes/zip", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Resume registered: bilal_resume (1).pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Processing resume_id: 69a149f9a4de2ef9b27cb4cb", "module": "worker", "funcName": "start_worker", "line_no": 12}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Resume registered: Faizan_Faisal.pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Resume pushed to queue: 69a149f9a4de2ef9b27cb4cc", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Resume registered: Hanzla Sohaib CV.docx", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Resume pushed to queue: 69a149f9a4de2ef9b27cb4cd", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Resume registered: Waleed_Ahmed_CV.pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Resume pushed to queue: 69a149f9a4de2ef9b27cb4ce", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 12:38:33", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 12:38:38", "message": "Finished processing resume_id: 69a149f9a4de2ef9b27cb4cb", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 12:38:38", "message": "Processing resume_id: 69a149f9a4de2ef9b27cb4cc", "module": "worker", "funcName": "start_worker", "line_no": 12}
+{"level": "INFO", "time": "2026-02-27 12:38:43", "message": "Finished processing resume_id: 69a149f9a4de2ef9b27cb4cc", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 12:38:43", "message": "Processing resume_id: 69a149f9a4de2ef9b27cb4cd", "module": "worker", "funcName": "start_worker", "line_no": 12}
+{"level": "INFO", "time": "2026-02-27 12:38:48", "message": "Finished processing resume_id: 69a149f9a4de2ef9b27cb4cd", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 12:38:48", "message": "Processing resume_id: 69a149f9a4de2ef9b27cb4ce", "module": "worker", "funcName": "start_worker", "line_no": 12}
+{"level": "INFO", "time": "2026-02-27 12:38:53", "message": "Finished processing resume_id: 69a149f9a4de2ef9b27cb4ce", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 12:56:01", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 12:56:03", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 13:05:54", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 13:05:57", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 13:07:09", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 13:07:12", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Incoming request POST http://127.0.0.1:8000/resumes/jobs/699fa96424ee0687b01aa880/resumes/zip", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Resume registered: bilal_resume (1).pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Resume pushed to queue: 69a15b8a1346d6d76e23bbd9", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Processing resume_id: 69a15b8a1346d6d76e23bbd9", "module": "worker", "funcName": "start_worker", "line_no": 12}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Resume registered: Faizan_Faisal.pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Resume pushed to queue: 69a15b8a1346d6d76e23bbda", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Resume registered: Hanzla Sohaib CV.docx", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Resume pushed to queue: 69a15b8a1346d6d76e23bbdb", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Resume registered: Waleed_Ahmed_CV.pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Resume pushed to queue: 69a15b8a1346d6d76e23bbdc", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 13:53:30", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 13:53:35", "message": "Finished processing resume_id: 69a15b8a1346d6d76e23bbd9", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 13:53:35", "message": "Processing resume_id: 69a15b8a1346d6d76e23bbda", "module": "worker", "funcName": "start_worker", "line_no": 12}
+{"level": "INFO", "time": "2026-02-27 13:53:40", "message": "Finished processing resume_id: 69a15b8a1346d6d76e23bbda", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 13:53:40", "message": "Processing resume_id: 69a15b8a1346d6d76e23bbdb", "module": "worker", "funcName": "start_worker", "line_no": 12}
+{"level": "INFO", "time": "2026-02-27 13:53:45", "message": "Finished processing resume_id: 69a15b8a1346d6d76e23bbdb", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 13:53:45", "message": "Processing resume_id: 69a15b8a1346d6d76e23bbdc", "module": "worker", "funcName": "start_worker", "line_no": 12}
+{"level": "INFO", "time": "2026-02-27 13:53:50", "message": "Finished processing resume_id: 69a15b8a1346d6d76e23bbdc", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 13:58:41", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 13:58:44", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 13:58:50", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 13:58:53", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:00:49", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 14:00:52", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:01:05", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:01:06", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 14:01:06", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 10}
+{"level": "INFO", "time": "2026-02-27 14:01:25", "message": "Incoming request POST http://127.0.0.1:8000/resumes/jobs/699fa96424ee0687b01aa880/resumes/zip", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 14:01:26", "message": "Resume registered: bilal_resume (1).pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 14:01:26", "message": "Resume pushed to queue: 69a15d66550cedef73154674", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 14:01:26", "message": "Resume registered: Faizan_Faisal.pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 14:01:26", "message": "Resume pushed to queue: 69a15d66550cedef73154675", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 14:01:26", "message": "Resume registered: Hanzla Sohaib CV.docx", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 14:01:26", "message": "Resume pushed to queue: 69a15d66550cedef73154676", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 14:01:26", "message": "Resume registered: Waleed_Ahmed_CV.pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 14:01:26", "message": "Resume pushed to queue: 69a15d66550cedef73154677", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 14:01:26", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 14:03:10", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 14:03:12", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:03:22", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:03:22", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 14:03:22", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 10}
+{"level": "INFO", "time": "2026-02-27 14:03:22", "message": "Picked resume_id: 69a15d66550cedef73154675", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:05:22", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:05:22", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 14:05:22", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 10}
+{"level": "INFO", "time": "2026-02-27 14:05:22", "message": "Picked resume_id: 69a15d66550cedef73154676", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:06:23", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 14:06:25", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:06:39", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 13}
+{"level": "INFO", "time": "2026-02-27 14:06:41", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:08:47", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-02-27 14:08:49", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:08:54", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:08:54", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-02-27 14:09:08", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-02-27 14:09:10", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:09:11", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:09:11", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-02-27 14:09:11", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 10}
+{"level": "INFO", "time": "2026-02-27 14:09:11", "message": "Picked resume_id: 69a15d66550cedef73154677", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:09:11", "message": "Marked as Processing: 69a15d66550cedef73154677", "module": "worker", "funcName": "start_worker", "line_no": 29}
+{"level": "INFO", "time": "2026-02-27 14:09:16", "message": "Finished resume_id: 69a15d66550cedef73154677 | Total Processed: 1 | Remaining In Queue: 0", "module": "worker", "funcName": "start_worker", "line_no": 51}
+{"level": "INFO", "time": "2026-02-27 14:09:58", "message": "Incoming request POST http://127.0.0.1:8000/resumes/jobs/699fa96424ee0687b01aa880/resumes/zip", "module": "main", "funcName": "logging_middleware", "line_no": 18}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Resume registered: bilal_resume (1).pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Picked resume_id: 69a15f679c35f636db7c82f5", "module": "worker", "funcName": "start_worker", "line_no": 19}
+7}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Marked as Processing: 69a15f679c35f636db7c82f5", "module": "worker", "funcName": "start_worker", "line_no": 29}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Resume registered: Faizan_Faisal.pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Resume pushed to queue: 69a15f679c35f636db7c82f6", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Resume registered: Hanzla Sohaib CV.docx", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Resume pushed to queue: 69a15f679c35f636db7c82f7", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Resume registered: Waleed_Ahmed_CV.pdf", "module": "resume", "funcName": "create_resume", "line_no": 9}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Resume pushed to queue: 69a15f679c35f636db7c82f8", "module": "resume", "funcName": "upload_zip", "line_no": 77}
+{"level": "INFO", "time": "2026-02-27 14:09:59", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 20}
+{"level": "INFO", "time": "2026-02-27 14:10:04", "message": "Finished resume_id: 69a15f679c35f636db7c82f5 | Total Processed: 2 | Remaining In Queue: 3", "module": "worker", "funcName": "start_worker", "line_no": 51}
+{"level": "INFO", "time": "2026-02-27 14:10:04", "message": "Picked resume_id: 69a15f679c35f636db7c82f6", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:10:04", "message": "Marked as Processing: 69a15f679c35f636db7c82f6", "module": "worker", "funcName": "start_worker", "line_no": 29}
+{"level": "INFO", "time": "2026-02-27 14:10:09", "message": "Finished resume_id: 69a15f679c35f636db7c82f6 | Total Processed: 3 | Remaining In Queue: 2", "module": "worker", "funcName": "start_worker", "line_no": 51}
+{"level": "INFO", "time": "2026-02-27 14:10:09", "message": "Picked resume_id: 69a15f679c35f636db7c82f7", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:10:09", "message": "Marked as Processing: 69a15f679c35f636db7c82f7", "module": "worker", "funcName": "start_worker", "line_no": 29}
+{"level": "INFO", "time": "2026-02-27 14:10:14", "message": "Finished resume_id: 69a15f679c35f636db7c82f7 | Total Processed: 4 | Remaining In Queue: 1", "module": "worker", "funcName": "start_worker", "line_no": 51}
+{"level": "INFO", "time": "2026-02-27 14:10:14", "message": "Picked resume_id: 69a15f679c35f636db7c82f8", "module": "worker", "funcName": "start_worker", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:10:14", "message": "Marked as Processing: 69a15f679c35f636db7c82f8", "module": "worker", "funcName": "start_worker", "line_no": 29}
+{"level": "INFO", "time": "2026-02-27 14:10:19", "message": "Finished resume_id: 69a15f679c35f636db7c82f8 | Total Processed: 5 | Remaining In Queue: 0", "module": "worker", "funcName": "start_worker", "line_no": 51}
+{"level": "INFO", "time": "2026-02-27 14:20:59", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-02-27 14:21:01", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:25:25", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-02-27 14:25:27", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:25:43", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-02-27 14:25:45", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:26:05", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-02-27 14:26:08", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}
+{"level": "INFO", "time": "2026-02-27 14:26:47", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-02-27 14:26:50", "message": "Connected to Redis successfully", "module": "redis_client", "funcName": "<module>", "line_no": 19}

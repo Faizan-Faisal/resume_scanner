@@ -1,8 +1,13 @@
 from fastapi import FastAPI, Request
-from app.api.routes import auth, job
+from app.api.routes import auth, job, resume
 from app.core.logging import logger
 import uuid
 from app.db.redis_client import redis_client
+
+from fastapi.responses import JSONResponse
+from fastapi.exceptions import RequestValidationError
+from app.core.exceptions import AppException
+from app.core.logging import logger
 
 app = FastAPI()
 
@@ -15,9 +20,51 @@ async def logging_middleware(request: Request, call_next):
     logger.info(f"Response status: {response.status_code}", extra={"request_id": request_id})
     return response
 
+@app.exception_handler(AppException)
+async def app_exception_handler(request, exc: AppException):
+    logger.error(f"AppException: {exc.code} - {exc.message}")
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "error": {
+                "code": exc.code,
+                "message": exc.message
+            }
+        },
+    )
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request, exc: RequestValidationError):
+    logger.warning(f"Validation error: {exc.errors()}")
+    return JSONResponse(
+        status_code=422,
+        content={
+            "error": {
+                "code": "VALIDATION_ERROR",
+                "message": "Invalid request parameters",
+                "details": exc.errors()
+            }
+        },
+    )
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc: Exception):
+    logger.exception("Unexpected server error")
+    return JSONResponse(
+        status_code=500,
+        content={
+            "error": {
+                "code": "INTERNAL_SERVER_ERROR",
+                "message": "Something went wrong"
+            }
+        },
+    )
+
 # Include auth routes
 app.include_router(auth.router, prefix="/auth")
 app.include_router(job.router, prefix="/jobs")
+app.include_router(resume.router, prefix="/resumes")
+
 
 @app.get("/")
 def root():
