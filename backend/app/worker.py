@@ -65,7 +65,7 @@
 import time
 from bson import ObjectId
 from app.db.redis_client import redis_client
-from app.db.mongo import resumes_collection
+from app.db.mongodb import resumes_collection
 from app.core.logging import logger
 
 QUEUE_NAME = "resume_queue"
@@ -79,7 +79,7 @@ def start_worker():
 
     while True:
         _, resume_id = redis_client.blpop(QUEUE_NAME)
-        resume_id = resume_id.decode("utf-8")
+        # resume_id = resume_id.decode("utf-8")
 
         logger.info(f"Picked resume_id: {resume_id}")
 
@@ -102,19 +102,19 @@ def start_worker():
             # if random.choice([True, False]):
             #     raise Exception("Simulated parsing failure")
 
-            # Mark as Processed
+            # Mark as Completed
             resumes_collection.update_one(
                 {"_id": ObjectId(resume_id)},
                 {
                     "$set": {
-                        "status": "Processed",
+                        "status": "Completed",
                         "error_message": None
                     }
                 }
             )
 
             processed_count += 1
-            logger.info(f"Successfully processed: {resume_id}")
+            logger.info(f"Successfully Completed: {resume_id}")
 
         except Exception as e:
             logger.error(f"Error processing {resume_id}: {str(e)}")

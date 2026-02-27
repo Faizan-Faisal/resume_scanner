@@ -11,3 +11,14 @@ class ResumeOut(BaseModel):
     retry_count: int = 0
     error_message: Optional[str] = None
     scores: Optional[dict] = None
+
+
+
+
+class JobSummaryOut(BaseModel):
+    job_id: str
+    total: int
+    queued: int
+    processing: int
+    Completed: int
+    failed: int

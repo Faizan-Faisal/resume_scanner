@@ -1,1 +1,1 @@
-fastapi uvicorn pymongo python-jose passlib[bcrypt] python-dotenv pydantic[email]
+fastapi uvicorn pymongo python-jose passlib[bcrypt] python-dotenv pydantic[email] requests python-multipart redis

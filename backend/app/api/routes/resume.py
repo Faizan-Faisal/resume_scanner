@@ -2,11 +2,15 @@ import os
 import zipfile
 import shutil
 from fastapi import APIRouter, UploadFile, File, HTTPException
-from app.crud.resume import create_resume, count_resumes_by_job
+from app.crud.resume import create_resume, count_resumes_by_job, get_job_summary, get_resumes_by_job
 from app.db.redis_client import redis_client
 from app.core.logging import logger
 from app.core.exceptions import AppException
 from uuid import uuid4
+from app.schemas.resume import JobSummaryOut, ResumeOut
+from typing import Optional
+from app.utils.gdrive import extract_folder_id, list_files_in_folder, download_file
+
 
 router = APIRouter()
 
@@ -82,5 +86,77 @@ async def upload_zip(job_id: str, file: UploadFile = File(...)):
 
     return {
         "message": "ZIP processed",
+        "resumes_registered": resumes_registered
+    }
+
+@router.get("/jobs/{job_id}/summary", response_model=JobSummaryOut)
+def job_summary(job_id: str):
+    return get_job_summary(job_id)
+
+
+
+@router.get("/jobs/{job_id}/resumes", response_model=list[ResumeOut])
+def list_resumes(job_id: str, status: Optional[str] = None):
+    return get_resumes_by_job(job_id, status)
+
+
+@router.post("/jobs/{job_id}/resumes/gdrive")
+def upload_from_gdrive(job_id: str, folder_url: str):
+
+    try:
+        folder_id = extract_folder_id(folder_url)
+    except ValueError:
+        raise AppException("INVALID_GDRIVE_URL", "Invalid Google Drive folder URL", 400)
+
+    try:
+        files = list_files_in_folder(folder_id)
+    except Exception:
+        raise AppException("GDRIVE_ACCESS_ERROR", "Unable to access Google Drive folder", 400)
+
+    if not files:
+        raise AppException("EMPTY_FOLDER", "No files found in folder", 400)
+
+    temp_folder = os.path.join(UPLOAD_DIR, str(uuid4()))
+    os.makedirs(temp_folder, exist_ok=True)
+
+    resumes_registered = 0
+
+    ALLOWED_MIME_TYPES = [
+    "application/pdf",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ]
+
+    for file in files:
+        ext = os.path.splitext(file["name"])[1].lower()
+
+        if file["mimeType"] not in ALLOWED_MIME_TYPES:
+            continue
+
+        if ext not in ALLOWED_EXTENSIONS:
+            continue
+        temp_file_path = os.path.join(temp_folder, file["name"])
+
+        try:
+            download_file(file["id"], temp_file_path)
+        except Exception:
+            logger.warning(f"Failed to download: {file['name']}")
+            continue
+
+        resume_id = create_resume({
+            "job_id": job_id,
+            "filename": file["name"],
+            "source": "GoogleDrive",
+            "file_path": temp_file_path
+        })
+
+        redis_client.rpush("resume_queue", resume_id)
+        logger.info(f"GDrive resume pushed to queue: {resume_id}")
+
+        resumes_registered += 1
+
+    shutil.rmtree(temp_folder)
+
+    return {
+        "message": "Google Drive folder processed",
         "resumes_registered": resumes_registered
     }

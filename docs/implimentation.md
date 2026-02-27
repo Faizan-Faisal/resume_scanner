@@ -155,7 +155,7 @@ POST /jobs/{job_id}/resumes/gdrive
 
 * Folder must be publicly accessible.
 * Private or restricted folders are not supported.
-* Only PDF files are processed.
+* Only PDF and word files are processed.
 
 ---
 
