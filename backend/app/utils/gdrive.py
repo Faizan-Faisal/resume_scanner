@@ -1,6 +1,6 @@
 import re
 import requests
-from app.core.config import GOOGLE_API_KEY
+from app.core.config import DRIVE_API_KEY
 
 
 def extract_folder_id(url: str) -> str:
@@ -16,7 +16,7 @@ def list_files_in_folder(folder_id: str):
 
     params = {
         "q": f"'{folder_id}' in parents",
-        "key": GOOGLE_API_KEY,
+        "key": DRIVE_API_KEY,
         "fields": "files(id, name, mimeType)"
     }
 
@@ -27,7 +27,7 @@ def list_files_in_folder(folder_id: str):
 
 
 def download_file(file_id: str, destination: str):
-    url = f"https://www.googleapis.com/drive/v3/files/{file_id}?alt=media&key={GOOGLE_API_KEY}"
+    url = f"https://www.googleapis.com/drive/v3/files/{file_id}?alt=media&key={DRIVE_API_KEY}"
     response = requests.get(url, stream=True)
     response.raise_for_status()
 

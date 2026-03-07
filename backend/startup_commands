@@ -1,7 +1,7 @@
-Redis Start = sudo service redis-server start
+sudo service redis-server start   # Redis Start  
 Server Start = cd backend
 .venv/Scripts/Activate
 uv run uvicorn app.main:app --reload
 
 
-python -m app.worker
+python -m app.worker   # for worker.py

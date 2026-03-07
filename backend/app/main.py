@@ -62,7 +62,7 @@ async def global_exception_handler(request, exc: Exception):
 
 # Include auth routes
 app.include_router(auth.router, prefix="/auth")
-app.include_router(job.router, prefix="/jobs")
+app.include_router(job.router, )
 app.include_router(resume.router, prefix="/resumes")
 
 

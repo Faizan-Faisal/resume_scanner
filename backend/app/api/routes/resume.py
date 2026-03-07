@@ -12,12 +12,16 @@ from typing import Optional
 from app.utils.gdrive import extract_folder_id, list_files_in_folder, download_file
 
 
-router = APIRouter()
+router = APIRouter(tags=["Resumes"])
 
 UPLOAD_DIR = "temp_uploads"
 ALLOWED_EXTENSIONS = [".pdf", ".docx"]
 MAX_FILE_SIZE_MB = 5
-MAX_RESUMES_PER_JOB = 20
+
+def get_resume_limit_for_job(job_id: str) -> int:
+    # Temporary logic (everyone is free)
+    return 20
+
 
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
@@ -29,10 +33,11 @@ async def upload_zip(job_id: str, file: UploadFile = File(...)):
         raise AppException("INVALID_FILE_TYPE", "Only ZIP files allowed", 400)
 
     job_resume_count = count_resumes_by_job(job_id)
-    if job_resume_count >= MAX_RESUMES_PER_JOB:
+    resume_limit = get_resume_limit_for_job(job_id)
+    if job_resume_count >= resume_limit:
         raise AppException(
             "RESUME_LIMIT_EXCEEDED",
-            "Maximum 20 resumes allowed per job",
+            f"Maximum {resume_limit} resumes allowed per job",
             400
         )
 
@@ -67,7 +72,8 @@ async def upload_zip(job_id: str, file: UploadFile = File(...)):
                 logger.warning(f"File too large skipped: {filename}")
                 continue
 
-            if count_resumes_by_job(job_id) >= MAX_RESUMES_PER_JOB:
+            if count_resumes_by_job(job_id) >= resume_limit:
+                logger.warning("Resume limit reached during ZIP upload")
                 break
 
             resume_id = create_resume({
@@ -99,9 +105,19 @@ def job_summary(job_id: str):
 def list_resumes(job_id: str, status: Optional[str] = None):
     return get_resumes_by_job(job_id, status)
 
-
 @router.post("/jobs/{job_id}/resumes/gdrive")
 def upload_from_gdrive(job_id: str, folder_url: str):
+
+    # ✅ 1️⃣ Global limit check (same as ZIP)
+    resume_limit = get_resume_limit_for_job(job_id)
+    job_resume_count = count_resumes_by_job(job_id)
+
+    if job_resume_count >= resume_limit:
+        raise AppException(
+            "RESUME_LIMIT_EXCEEDED",
+            f"Maximum {resume_limit} resumes allowed per job",
+            400
+        )
 
     try:
         folder_id = extract_folder_id(folder_url)
@@ -116,17 +132,23 @@ def upload_from_gdrive(job_id: str, folder_url: str):
     if not files:
         raise AppException("EMPTY_FOLDER", "No files found in folder", 400)
 
-    temp_folder = os.path.join(UPLOAD_DIR, str(uuid4()))
-    os.makedirs(temp_folder, exist_ok=True)
+    job_folder = os.path.join(UPLOAD_DIR, str(uuid4()))
+    os.makedirs(job_folder, exist_ok=True)
 
     resumes_registered = 0
 
     ALLOWED_MIME_TYPES = [
-    "application/pdf",
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     ]
 
     for file in files:
+
+        # ✅ 2️⃣ Stop if limit reached during loop
+        if count_resumes_by_job(job_id) >= resume_limit:
+            logger.warning("Resume limit reached during GDrive upload")
+            break
+
         ext = os.path.splitext(file["name"])[1].lower()
 
         if file["mimeType"] not in ALLOWED_MIME_TYPES:
@@ -134,27 +156,32 @@ def upload_from_gdrive(job_id: str, folder_url: str):
 
         if ext not in ALLOWED_EXTENSIONS:
             continue
-        temp_file_path = os.path.join(temp_folder, file["name"])
+
+        destination_path = os.path.join(job_folder, file["name"])
 
         try:
-            download_file(file["id"], temp_file_path)
-        except Exception:
-            logger.warning(f"Failed to download: {file['name']}")
+            os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+            download_file(file["id"], destination_path)
+
+            if not os.path.exists(destination_path):
+                logger.warning(f"File not found after download: {file['name']}")
+                continue
+
+        except Exception as e:
+            logger.warning(f"Failed to download {file['name']}: {str(e)}")
             continue
 
         resume_id = create_resume({
             "job_id": job_id,
             "filename": file["name"],
             "source": "GoogleDrive",
-            "file_path": temp_file_path
+            "file_path": destination_path
         })
 
         redis_client.rpush("resume_queue", resume_id)
         logger.info(f"GDrive resume pushed to queue: {resume_id}")
 
         resumes_registered += 1
-
-    shutil.rmtree(temp_folder)
 
     return {
         "message": "Google Drive folder processed",

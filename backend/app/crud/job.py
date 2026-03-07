@@ -1,27 +1,37 @@
 from app.db.mongodb import db
-from app.core.logging import logger
+from datetime import datetime
+from bson import ObjectId
+
 
 def create_job(job_data: dict):
-    logger.info(f"Creating job: {job_data['title']}")
-    job_data["status"] = "pending"
-    db.jobs.insert_one(job_data)
-    logger.info(f"Job created: {job_data['title']}")
-    return job_data
+    job_data["status"] = "processing"
+    job_data["created_at"] = datetime.utcnow()
 
-def update_job_status(job_id, status: str):
-    logger.info(f"Updating job {job_id} status to {status}")
-    db.jobs.update_one({"_id": job_id}, {"$set": {"status": status}})
+    result = db.jobs.insert_one(job_data)
 
-def append_job_result(job_id, result: dict):
-    logger.info(f"Appending result for job {job_id}: {result}")
-    db.jobs.update_one({"_id": job_id}, {"$push": {"results": result}})
+    return db.jobs.find_one({"_id": result.inserted_id})
+
+
+def update_job_with_structured_data(job_id: str, structured_data: dict):
+    structured_data["status"] = "completed"
+    db.jobs.update_one(
+        {"_id": ObjectId(job_id)},
+        {
+            "$set": {
+                "required_skills": structured_data["required_skills"],
+                "min_experience": structured_data["min_experience"],
+                "weights": structured_data["weights"],
+                "job_embedding": structured_data["job_embedding"]
+            }
+        }
+    )
+
+    return db.jobs.find_one({"_id": ObjectId(job_id)})
+
 
 def get_jobs():
-    jobs = list(db.jobs.find())
-    logger.info(f"Fetched {len(jobs)} jobs")
-    return jobs
+    return list(db.jobs.find())
 
-def get_job_by_id(job_id):
-    job = db.jobs.find_one({"_id": job_id})
-    logger.info(f"Fetched job {job_id}")
-    return job
+
+def get_job_by_id(job_id: str):
+    return db.jobs.find_one({"_id": ObjectId(job_id)})

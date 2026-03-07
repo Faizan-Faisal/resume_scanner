@@ -3,7 +3,7 @@ from app.schemas.user import UserCreate, UserOut
 from app.crud.user import create_user, authenticate_user, generate_token
 from app.core.logging import logger
 
-router = APIRouter()
+router = APIRouter(tags=["Auth"])
 
 @router.post("/signup", response_model=UserOut)
 def signup(user: UserCreate):

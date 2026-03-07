@@ -179,15 +179,18 @@ Process resumes asynchronously and compute ranking scores.
 
 Worker continuously:
 
-1. Pull resume_id from Redis Queue
-2. Fetch resume metadata from MongoDB
-3. Access resume file (ZIP extracted or downloaded)
-4. Extract text
-5. Clean and normalize text
-6. Generate embeddings
-7. Compare with job description embedding
-8. Compute weighted final score
-9. Update MongoDB:
+1. Pull resume_id
+2. Fetch resume metadata
+3. Fetch job (already structured)
+4. Extract resume text
+5. Extract resume skills
+6. Extract resume experience
+7. Generate resume embedding
+8. Compute semantic_score 
+9. Compute skills_score
+10. Compute experience_score
+11. Apply weights from job document
+12. Update MongoDB
 
 Example:
 
@@ -334,7 +337,7 @@ GET /jobs/{job_id}/ranking
 * JWT authentication required for all APIs
 * JWT validation for WebSocket connection
 * Validate job access authorization
-* Validate file type (PDF only)
+* Validate file type (PDF and word only)
 * Enforce file size limits
 
 ---
@@ -362,7 +365,7 @@ Frontend Re-fetch Ranking
 # 🔟 Assumptions & Constraints
 
 * Google Drive folder must be publicly accessible
-* Only PDF resumes supported
+* Only PDF and word resumes supported
 * Local development environment only
 * No containerization at this stage
 * No OAuth integration

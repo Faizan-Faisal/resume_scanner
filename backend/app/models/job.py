@@ -1,10 +1,12 @@
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, Dict, List
+
 
 class JobModel(BaseModel):
     title: str
     description: str
-    resume_source: str  # "zip" or "google_drive_link"
-    weightage_scheme: Optional[dict] = None
-    status: str = "pending"  # pending, processing, completed
-    results: Optional[List[dict]] = []  # store candidate scores & explanation
+    required_skills: List[str]
+    min_experience: int
+    weights: Dict[str, float]
+    job_embedding: List[float]
+    status: str = "Open"
