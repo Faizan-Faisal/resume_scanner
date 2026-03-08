@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from app.api.routes import auth, job, resume, websocket
+from app.api.routes import auth, job, resume, websocket, ranking_routes
 from app.core.logging import logger
 import uuid
 from app.db.redis_client import redis_client
@@ -12,10 +12,6 @@ from app.core.logging import logger
 import asyncio
 
 from app.services.pubsub_listeners import listen_for_events
-
-
-
-
 
 
 app = FastAPI()
@@ -74,7 +70,7 @@ app.include_router(auth.router, prefix="/auth")
 app.include_router(job.router, )
 app.include_router(resume.router, prefix="/resumes")
 app.include_router(websocket.router)
-
+app.include_router(ranking_routes.router)
 
 @app.on_event("startup")
 async def startup_event():
