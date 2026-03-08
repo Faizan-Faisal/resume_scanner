@@ -84,7 +84,11 @@ async def upload_zip(job_id: str, file: UploadFile = File(...)):
             })
 
             redis_client.rpush("resume_queue", resume_id)
-            logger.info(f"Resume pushed to queue: {resume_id}")
+            queue_size = redis_client.llen("resume_queue")
+
+            logger.info(
+                f"Resume pushed to queue: {resume_id} | Current Queue Size: {queue_size}"
+            )
 
             resumes_registered += 1
 
@@ -179,7 +183,11 @@ def upload_from_gdrive(job_id: str, folder_url: str):
         })
 
         redis_client.rpush("resume_queue", resume_id)
-        logger.info(f"GDrive resume pushed to queue: {resume_id}")
+        queue_size = redis_client.llen("resume_queue")
+
+        logger.info(
+            f"GDrive resume pushed to queue: {resume_id} | Current Queue Size: {queue_size}"
+        )
 
         resumes_registered += 1
 

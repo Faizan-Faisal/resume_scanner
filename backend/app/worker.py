@@ -64,6 +64,10 @@ def start_worker():
     failed_count = 0
 
     while True:
+        # 🔍 Check queue size before consuming
+        queue_size = redis_client.llen(QUEUE_NAME)
+        logger.info(f"Queue size before pop: {queue_size}")
+        
         _, resume_id = redis_client.blpop(QUEUE_NAME)
 
         logger.info(f"Picked resume_id: {resume_id}")

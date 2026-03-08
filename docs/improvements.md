@@ -22,3 +22,10 @@ Return top 20 matches
 
 Paid Subscription (20 resumes/job --> free, 500 resumes/job --> paid)
 ---
+
+# 4
+
+establishing the event-driven architecture (web-socket) for the real time update connection. 
+---
+
+
