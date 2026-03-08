@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from app.api.routes import auth, job, resume
+from app.api.routes import auth, job, resume, websocket
 from app.core.logging import logger
 import uuid
 from app.db.redis_client import redis_client
@@ -8,6 +8,15 @@ from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from app.core.exceptions import AppException
 from app.core.logging import logger
+
+import asyncio
+
+from app.services.pubsub_listeners import listen_for_events
+
+
+
+
+
 
 app = FastAPI()
 
@@ -64,6 +73,13 @@ async def global_exception_handler(request, exc: Exception):
 app.include_router(auth.router, prefix="/auth")
 app.include_router(job.router, )
 app.include_router(resume.router, prefix="/resumes")
+app.include_router(websocket.router)
+
+
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(listen_for_events())
+
 
 
 @app.get("/")

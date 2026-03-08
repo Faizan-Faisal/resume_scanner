@@ -139,6 +139,17 @@ def start_worker():
                 }
             )
 
+             # 7️⃣ Publish Event (Phase 4)
+            redis_client.publish(
+                "resume_completed",
+                json.dumps({
+                    "job_id": job_id,
+                    "resume_id": resume_id,
+                    "final_score": final_score
+                })
+            )
+
+
             # ✅ SAFE FILE CLEANUP AFTER SUCCESS
             file_path = resume["file_path"]
 
@@ -154,26 +165,6 @@ def start_worker():
 
             processed_count += 1
             logger.info(f"Successfully Completed: {resume_id}")
-            # # 6️⃣ Update Resume
-            # resumes_collection.update_one(
-            #     {"_id": ObjectId(resume_id)},
-            #     {
-            #         "$set": {
-            #             "status": "Completed",
-            #             "scores": {
-            #                 "semantic_score": round(semantic_score, 3),
-            #                 "skills_score": round(skills_score, 3),
-            #                 "experience_score": round(experience_score, 3),
-            #                 "final_score": final_score
-            #             },
-            #             "processed_at": datetime.utcnow(),
-            #             "error_message": None
-            #         }
-            #     }
-            # )
-
-            # processed_count += 1
-            # logger.info(f"Successfully Completed: {resume_id}")
 
         except Exception as e:
             logger.error(f"Error processing {resume_id}: {str(e)}")
