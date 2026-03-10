@@ -23,6 +23,16 @@ async def verify_email(data: EmailVerification):
     return {"message": "Email verified successfully"}
 
 
+@router.post("/resend-verification")
+async def resend_verification(data: ResendVerification):
+
+    await auth_service.resend_verification_email(data.email)
+
+    return {
+        "message": "Verification email resent successfully"
+    }
+
+
 @router.post("/login", response_model=TokenResponse)
 async def login(data: UserLogin):
 

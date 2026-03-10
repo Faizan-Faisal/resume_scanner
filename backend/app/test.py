@@ -2,8 +2,12 @@ import asyncio
 import websockets
 import json
 
-# JOB_ID = "69ac6f5cc550b0bbff6ebe4c"
 
+# const token = localStorage.getItem("access_token")
+
+# const ws = new WebSocket(
+#   `ws://localhost:8000/ws/jobs/123/ranking?token=${token}`
+# )
 async def listen():
 
     # uri = f"ws://localhost:8000/ws/jobs/{JOB_ID}/ranking"

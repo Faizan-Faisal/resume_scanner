@@ -1,7 +1,17 @@
 from pydantic import BaseModel, EmailStr
-from bson import ObjectId
+from datetime import datetime
+from typing import Optional
+
 
 class UserModel(BaseModel):
-    company_name: str
+
+    name: str
     email: EmailStr
     password: str
+
+    is_verified: bool = False
+
+    created_at: datetime = datetime.utcnow()
+
+    reset_code: Optional[str] = None
+    reset_expiry: Optional[datetime] = None

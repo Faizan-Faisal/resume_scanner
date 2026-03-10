@@ -1,14 +1,19 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from app.services.ranking_resumes import get_top_resumes
 from app.crud.ranking import get_resumes_by_ids
 from app.schemas.ranking import RankingResponse
 from app.core.logging import logger
+from app.core.auth_dependency import get_current_user
 
 router = APIRouter(tags=["Ranking"])
 
 
 @router.get("/jobs/{job_id}/ranking", response_model=RankingResponse)
-async def get_job_ranking(job_id: str, limit: int = 50):
+async def get_job_ranking(
+    job_id: str,
+    limit: int = 50,
+    current_user: str = Depends(get_current_user),
+):
 
     logger.info(f"Fetching ranking for job_id={job_id}")
 

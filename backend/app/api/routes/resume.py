@@ -1,7 +1,7 @@
 import os
 import zipfile
 import shutil
-from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
 from app.crud.resume import create_resume, count_resumes_by_job, get_job_summary, get_resumes_by_job
 from app.db.redis_client import redis_client
 from app.core.logging import logger
@@ -10,6 +10,7 @@ from uuid import uuid4
 from app.schemas.resume import JobSummaryOut, ResumeOut
 from typing import Optional
 from app.utils.gdrive import extract_folder_id, list_files_in_folder, download_file
+from app.core.auth_dependency import get_current_user
 
 
 router = APIRouter(tags=["Resumes"])
@@ -27,7 +28,11 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
 @router.post("/jobs/{job_id}/resumes/zip")
-async def upload_zip(job_id: str, file: UploadFile = File(...)):
+async def upload_zip(
+    job_id: str,
+    file: UploadFile = File(...),
+    current_user: str = Depends(get_current_user),
+):
 
     if not file.filename.endswith(".zip"):
         raise AppException("INVALID_FILE_TYPE", "Only ZIP files allowed", 400)
@@ -102,17 +107,28 @@ async def upload_zip(job_id: str, file: UploadFile = File(...)):
     }
 
 @router.get("/jobs/{job_id}/summary", response_model=JobSummaryOut)
-async def job_summary(job_id: str):
+async def job_summary(
+    job_id: str,
+    current_user: str = Depends(get_current_user),
+):
     return await get_job_summary(job_id)
 
 
 
 @router.get("/jobs/{job_id}/resumes", response_model=list[ResumeOut])
-async def list_resumes(job_id: str, status: Optional[str] = None):
+async def list_resumes(
+    job_id: str,
+    status: Optional[str] = None,
+    current_user: str = Depends(get_current_user),
+):
     return await get_resumes_by_job(job_id, status)
 
 @router.post("/jobs/{job_id}/resumes/gdrive")
-async def upload_from_gdrive(job_id: str, folder_url: str):
+async def upload_from_gdrive(
+    job_id: str,
+    folder_url: str,
+    current_user: str = Depends(get_current_user),
+):
 
     # ✅ 1️⃣ Global limit check (same as ZIP)
     resume_limit = get_resume_limit_for_job(job_id)

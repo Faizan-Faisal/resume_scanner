@@ -1715,3 +1715,262 @@
 {"level": "INFO", "time": "2026-03-08 23:53:59", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
 {"level": "INFO", "time": "2026-03-08 23:54:24", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 61}
 {"level": "INFO", "time": "2026-03-08 23:54:24", "message": "Queue size before pop: 0", "module": "worker", "funcName": "start_worker", "line_no": 69}
+{"level": "INFO", "time": "2026-03-09 00:00:02", "message": "Incoming request GET http://localhost:8000/", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-09 00:00:02", "message": "Root endpoint called", "module": "main", "funcName": "root", "line_no": 83}
+{"level": "INFO", "time": "2026-03-09 00:00:02", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 00:00:04", "message": "Incoming request GET http://localhost:8000/favicon.ico", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-09 00:00:04", "message": "Response status: 404", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 00:00:07", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-09 00:00:07", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 00:00:07", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-09 00:00:07", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 00:00:50", "message": "Incoming request POST http://localhost:8000/resumes/jobs/69ac7c18c550b0bbff6ebe57/resumes/gdrive?folder_url=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1_W_upc02hlHyROCfo7Yvti-8oesNFSr3", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-09 00:00:53", "message": "Resume registered: Soba.docx", "module": "resume", "funcName": "create_resume", "line_no": 18}
+{"level": "INFO", "time": "2026-03-09 00:00:53", "message": "Picked resume_id: 69adc7651811461e7bf128d4", "module": "worker", "funcName": "start_worker", "line_no": 73}
+{"level": "INFO", "time": "2026-03-09 00:00:53", "message": "GDrive resume pushed to queue: 69adc7651811461e7bf128d4 | Current Queue Size: 0", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 188}
+{"level": "INFO", "time": "2026-03-09 00:00:55", "message": "Deleted processed file: temp_uploads\\620536a3-6d33-45e8-aaa1-5cbcb8ff0f29\\Soba.docx", "module": "worker", "funcName": "start_worker", "line_no": 162}
+{"level": "INFO", "time": "2026-03-09 00:00:55", "message": "Successfully Completed: 69adc7651811461e7bf128d4", "module": "worker", "funcName": "start_worker", "line_no": 171}
+{"level": "INFO", "time": "2026-03-09 00:00:55", "message": "Metrics \u2192 Processed: 1 | Failed: 0 | Remaining In Queue: 0", "module": "worker", "funcName": "start_worker", "line_no": 214}
+{"level": "INFO", "time": "2026-03-09 00:00:55", "message": "Queue size before pop: 0", "module": "worker", "funcName": "start_worker", "line_no": 69}
+{"level": "INFO", "time": "2026-03-09 00:00:55", "message": "Resume registered: Sohaib.docx", "module": "resume", "funcName": "create_resume", "line_no": 18}
+{"level": "INFO", "time": "2026-03-09 00:00:55", "message": "Picked resume_id: 69adc7671811461e7bf128d5", "module": "worker", "funcName": "start_worker", "line_no": 73}
+{"level": "INFO", "time": "2026-03-09 00:00:55", "message": "GDrive resume pushed to queue: 69adc7671811461e7bf128d5 | Current Queue Size: 0", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 188}
+{"level": "INFO", "time": "2026-03-09 00:00:56", "message": "Deleted processed file: temp_uploads\\620536a3-6d33-45e8-aaa1-5cbcb8ff0f29\\Sohaib.docx", "module": "worker", "funcName": "start_worker", "line_no": 162}
+{"level": "INFO", "time": "2026-03-09 00:00:56", "message": "Successfully Completed: 69adc7671811461e7bf128d5", "module": "worker", "funcName": "start_worker", "line_no": 171}
+{"level": "INFO", "time": "2026-03-09 00:00:56", "message": "Metrics \u2192 Processed: 2 | Failed: 0 | Remaining In Queue: 0", "module": "worker", "funcName": "start_worker", "line_no": 214}
+{"level": "INFO", "time": "2026-03-09 00:00:56", "message": "Queue size before pop: 0", "module": "worker", "funcName": "start_worker", "line_no": 69}
+{"level": "INFO", "time": "2026-03-09 00:00:59", "message": "Resume registered: Ahmed_CV.pdf", "module": "resume", "funcName": "create_resume", "line_no": 18}
+{"level": "INFO", "time": "2026-03-09 00:00:59", "message": "Picked resume_id: 69adc76b1811461e7bf128d6", "module": "worker", "funcName": "start_worker", "line_no": 73}
+{"level": "INFO", "time": "2026-03-09 00:00:59", "message": "GDrive resume pushed to queue: 69adc76b1811461e7bf128d6 | Current Queue Size: 0", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 188}
+{"level": "INFO", "time": "2026-03-09 00:01:05", "message": "Deleted processed file: temp_uploads\\620536a3-6d33-45e8-aaa1-5cbcb8ff0f29\\Ahmed_CV.pdf", "module": "worker", "funcName": "start_worker", "line_no": 162}
+{"level": "INFO", "time": "2026-03-09 00:01:05", "message": "Successfully Completed: 69adc76b1811461e7bf128d6", "module": "worker", "funcName": "start_worker", "line_no": 171}
+{"level": "INFO", "time": "2026-03-09 00:01:05", "message": "Metrics \u2192 Processed: 3 | Failed: 0 | Remaining In Queue: 0", "module": "worker", "funcName": "start_worker", "line_no": 214}
+{"level": "INFO", "time": "2026-03-09 00:01:05", "message": "Queue size before pop: 0", "module": "worker", "funcName": "start_worker", "line_no": 69}
+{"level": "INFO", "time": "2026-03-09 00:01:05", "message": "Resume registered: Faizan_Faisal.pdf", "module": "resume", "funcName": "create_resume", "line_no": 18}
+{"level": "INFO", "time": "2026-03-09 00:01:05", "message": "Picked resume_id: 69adc7711811461e7bf128d7", "module": "worker", "funcName": "start_worker", "line_no": 73}
+{"level": "INFO", "time": "2026-03-09 00:01:05", "message": "GDrive resume pushed to queue: 69adc7711811461e7bf128d7 | Current Queue Size: 0", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 188}
+{"level": "INFO", "time": "2026-03-09 00:01:06", "message": "Deleted processed file: temp_uploads\\620536a3-6d33-45e8-aaa1-5cbcb8ff0f29\\Faizan_Faisal.pdf", "module": "worker", "funcName": "start_worker", "line_no": 162}
+{"level": "INFO", "time": "2026-03-09 00:01:06", "message": "Successfully Completed: 69adc7711811461e7bf128d7", "module": "worker", "funcName": "start_worker", "line_no": 171}
+{"level": "INFO", "time": "2026-03-09 00:01:06", "message": "Metrics \u2192 Processed: 4 | Failed: 0 | Remaining In Queue: 0", "module": "worker", "funcName": "start_worker", "line_no": 214}
+{"level": "INFO", "time": "2026-03-09 00:01:06", "message": "Queue size before pop: 0", "module": "worker", "funcName": "start_worker", "line_no": 69}
+{"level": "INFO", "time": "2026-03-09 00:01:07", "message": "Resume registered: bia_resume (1).pdf", "module": "resume", "funcName": "create_resume", "line_no": 18}
+{"level": "INFO", "time": "2026-03-09 00:01:07", "message": "Picked resume_id: 69adc7731811461e7bf128d8", "module": "worker", "funcName": "start_worker", "line_no": 73}
+{"level": "INFO", "time": "2026-03-09 00:01:07", "message": "GDrive resume pushed to queue: 69adc7731811461e7bf128d8 | Current Queue Size: 0", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 188}
+{"level": "INFO", "time": "2026-03-09 00:01:07", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 00:01:08", "message": "Deleted processed file: temp_uploads\\620536a3-6d33-45e8-aaa1-5cbcb8ff0f29\\bia_resume (1).pdf", "module": "worker", "funcName": "start_worker", "line_no": 162}
+{"level": "INFO", "time": "2026-03-09 00:01:08", "message": "Successfully Completed: 69adc7731811461e7bf128d8", "module": "worker", "funcName": "start_worker", "line_no": 171}
+{"level": "INFO", "time": "2026-03-09 00:01:08", "message": "Metrics \u2192 Processed: 5 | Failed: 0 | Remaining In Queue: 0", "module": "worker", "funcName": "start_worker", "line_no": 214}
+{"level": "INFO", "time": "2026-03-09 00:01:08", "message": "Queue size before pop: 0", "module": "worker", "funcName": "start_worker", "line_no": 69}
+{"level": "INFO", "time": "2026-03-09 02:26:28", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 02:26:35", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 02:32:52", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 02:37:36", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 02:41:28", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 02:41:33", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 02:43:36", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 02:43:42", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 02:48:16", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 02:48:18", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 02:51:18", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 02:51:20", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 02:58:02", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 02:58:04", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 02:59:57", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 02:59:59", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 03:00:15", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 03:00:17", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 03:01:36", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 03:01:38", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 03:04:05", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 03:04:08", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 03:07:04", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 03:07:24", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 03:07:26", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 03:08:57", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 03:08:59", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 15:12:50", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-09 15:12:54", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 15:13:32", "message": "Incoming request GET http://localhost:8000/", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-09 15:13:32", "message": "Root endpoint called", "module": "main", "funcName": "root", "line_no": 83}
+{"level": "INFO", "time": "2026-03-09 15:13:32", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 15:13:34", "message": "Incoming request GET http://localhost:8000/favicon.ico", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-09 15:13:34", "message": "Response status: 404", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 15:13:38", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-09 15:13:38", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-09 15:13:38", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-09 15:13:38", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 17:12:31", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 16}
+{"level": "INFO", "time": "2026-03-10 17:12:36", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 17:16:47", "message": "Incoming request GET http://localhost:8000/", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 17:16:47", "message": "Root endpoint called", "module": "main", "funcName": "root", "line_no": 83}
+{"level": "INFO", "time": "2026-03-10 17:16:47", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 17:16:50", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 17:16:50", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 17:16:50", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 17:16:50", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 17:17:21", "message": "Incoming request POST http://localhost:8000/auth/signup", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 17:17:22", "message": "Signup attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "signup", "line_no": 28}
+{"level": "ERROR", "time": "2026-03-10 17:17:22", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-10 17:28:34", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 17:28:39", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 17:28:51", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 17:28:53", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 17:30:31", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 17:30:33", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 17:35:18", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 17:35:20", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 17:35:49", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 17:35:51", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:04:59", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 19:05:02", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:06:22", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 19:06:24", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:06:45", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 19:06:47", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:08:08", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 19:08:11", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:12:54", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 19:12:56", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:14:21", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 19:14:23", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:18:56", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 19:18:58", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:24:04", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 19:24:04", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:24:04", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 19:24:04", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:24:37", "message": "Incoming request POST http://localhost:8000/auth/signup", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 19:24:38", "message": "Signup attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "signup", "line_no": 28}
+{"level": "ERROR", "time": "2026-03-10 19:24:38", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-10 19:39:24", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 19:39:26", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:39:46", "message": "Incoming request POST http://localhost:8000/auth/signup", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 19:39:46", "message": "Signup attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "signup", "line_no": 28}
+{"level": "INFO", "time": "2026-03-10 19:39:50", "message": "Email sent to ifaizanfaisal@gmail.com", "module": "email", "funcName": "send_email", "line_no": 28}
+{"level": "INFO", "time": "2026-03-10 19:39:50", "message": "Verification code generated for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "signup", "line_no": 53}
+{"level": "INFO", "time": "2026-03-10 19:39:50", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:40:37", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 19:40:37", "message": "Login attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 75}
+{"level": "ERROR", "time": "2026-03-10 19:40:37", "message": "AppException: EMAIL_NOT_VERIFIED - Verify your email first", "module": "main", "funcName": "app_exception_handler", "line_no": 30}
+{"level": "INFO", "time": "2026-03-10 19:40:37", "message": "Response status: 401", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:41:00", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 19:41:00", "message": "Login attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 75}
+{"level": "ERROR", "time": "2026-03-10 19:41:01", "message": "AppException: INVALID_CREDENTIALS - Invalid email or password", "module": "main", "funcName": "app_exception_handler", "line_no": 30}
+{"level": "INFO", "time": "2026-03-10 19:41:01", "message": "Response status: 401", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:41:16", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "WARNING", "time": "2026-03-10 19:41:16", "message": "Validation error: [{'type': 'string_type', 'loc': ('body', 'password'), 'msg': 'Input should be a valid string', 'input': 295841}]", "module": "main", "funcName": "validation_exception_handler", "line_no": 43}
+{"level": "INFO", "time": "2026-03-10 19:41:16", "message": "Response status: 422", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:41:47", "message": "Incoming request POST http://localhost:8000/auth/verify", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "ERROR", "time": "2026-03-10 19:41:47", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-10 19:42:18", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 19:42:20", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:42:29", "message": "Incoming request POST http://localhost:8000/auth/verify", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "ERROR", "time": "2026-03-10 19:42:29", "message": "AppException: INVALID_CODE - Invalid verification code", "module": "main", "funcName": "app_exception_handler", "line_no": 30}
+{"level": "INFO", "time": "2026-03-10 19:42:29", "message": "Response status: 400", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:42:59", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 19:42:59", "message": "Login attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 75}
+{"level": "ERROR", "time": "2026-03-10 19:43:00", "message": "AppException: EMAIL_NOT_VERIFIED - Verify your email first", "module": "main", "funcName": "app_exception_handler", "line_no": 30}
+{"level": "INFO", "time": "2026-03-10 19:43:00", "message": "Response status: 401", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:43:20", "message": "Incoming request POST http://localhost:8000/auth/verify", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "ERROR", "time": "2026-03-10 19:43:20", "message": "AppException: INVALID_CODE - Invalid verification code", "module": "main", "funcName": "app_exception_handler", "line_no": 30}
+{"level": "INFO", "time": "2026-03-10 19:43:20", "message": "Response status: 400", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 19:43:41", "message": "Incoming request POST http://localhost:8000/auth/verify", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "WARNING", "time": "2026-03-10 19:43:41", "message": "Validation error: [{'type': 'string_type', 'loc': ('body', 'code'), 'msg': 'Input should be a valid string', 'input': 295841}]", "module": "main", "funcName": "validation_exception_handler", "line_no": 43}
+{"level": "INFO", "time": "2026-03-10 19:43:41", "message": "Response status: 422", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:07:16", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 22:07:18", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:08:34", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 22:08:34", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:09:03", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 22:09:03", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:10:25", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 22:10:25", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:26:17", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 22:26:18", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:41:10", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 22:41:11", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:41:37", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 22:41:37", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:43:34", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 22:43:34", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:44:33", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 22:44:33", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:44:33", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 22:44:33", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:44:49", "message": "Incoming request POST http://localhost:8000/auth/resend-verification", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "WARNING", "time": "2026-03-10 22:44:49", "message": "Validation error: [{'type': 'json_invalid', 'loc': ('body', 13), 'msg': 'JSON decode error', 'input': {}, 'ctx': {'error': 'Expecting value'}}]", "module": "main", "funcName": "validation_exception_handler", "line_no": 43}
+{"level": "INFO", "time": "2026-03-10 22:44:49", "message": "Response status: 422", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:45:16", "message": "Incoming request POST http://localhost:8000/auth/resend-verification", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 22:45:16", "message": "Resend verification requested: ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "resend_verification_email", "line_no": 140}
+{"level": "ERROR", "time": "2026-03-10 22:45:48", "message": "Email sending failed: Connection unexpectedly closed: [WinError 10053] An established connection was aborted by the software in your host machine", "module": "email", "funcName": "send_email", "line_no": 31}
+{"level": "ERROR", "time": "2026-03-10 22:45:48", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-10 22:47:48", "message": "Incoming request POST http://localhost:8000/auth/resend-verification", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 22:47:48", "message": "Resend verification requested: ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "resend_verification_email", "line_no": 140}
+{"level": "INFO", "time": "2026-03-10 22:47:55", "message": "Email sent to ifaizanfaisal@gmail.com", "module": "email", "funcName": "send_email", "line_no": 28}
+{"level": "INFO", "time": "2026-03-10 22:47:55", "message": "Verification email resent to ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "resend_verification_email", "line_no": 167}
+{"level": "INFO", "time": "2026-03-10 22:47:55", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 22:54:43", "message": "Incoming request POST http://localhost:8000/auth/verify", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "ERROR", "time": "2026-03-10 22:54:43", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-10 22:59:21", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 22:59:22", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:00:32", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 23:00:32", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:00:41", "message": "Incoming request POST http://localhost:8000/auth/verify", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "ERROR", "time": "2026-03-10 23:00:41", "message": "AppException: CODE_EXPIRED - Verification code expired", "module": "main", "funcName": "app_exception_handler", "line_no": 30}
+{"level": "INFO", "time": "2026-03-10 23:00:41", "message": "Response status: 400", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:00:59", "message": "Incoming request POST http://localhost:8000/auth/resend-verification", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:00:59", "message": "Resend verification requested: ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "resend_verification_email", "line_no": 141}
+{"level": "ERROR", "time": "2026-03-10 23:01:19", "message": "Email sending failed: Connection unexpectedly closed", "module": "email", "funcName": "send_email", "line_no": 31}
+{"level": "ERROR", "time": "2026-03-10 23:01:19", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-10 23:01:31", "message": "Incoming request POST http://localhost:8000/auth/resend-verification", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:01:31", "message": "Resend verification requested: ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "resend_verification_email", "line_no": 141}
+{"level": "INFO", "time": "2026-03-10 23:01:58", "message": "Email sent to ifaizanfaisal@gmail.com", "module": "email", "funcName": "send_email", "line_no": 28}
+{"level": "INFO", "time": "2026-03-10 23:01:58", "message": "Verification email resent to ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "resend_verification_email", "line_no": 168}
+{"level": "INFO", "time": "2026-03-10 23:01:58", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:02:22", "message": "Incoming request POST http://localhost:8000/auth/verify", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:02:22", "message": "Email verified: ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "verify_email", "line_no": 70}
+{"level": "INFO", "time": "2026-03-10 23:02:22", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:02:49", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:02:49", "message": "Login attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 76}
+{"level": "ERROR", "time": "2026-03-10 23:02:49", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-10 23:04:14", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 23:04:14", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:04:42", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:04:42", "message": "Login attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 76}
+{"level": "ERROR", "time": "2026-03-10 23:04:42", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-10 23:06:10", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 23:06:10", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:06:14", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:06:14", "message": "Login attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 76}
+{"level": "INFO", "time": "2026-03-10 23:06:15", "message": "Login success: ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 91}
+{"level": "INFO", "time": "2026-03-10 23:06:15", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:23:53", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 23:23:53", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:24:02", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 23:24:02", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:24:09", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 23:24:09", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:25:35", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:25:35", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:25:35", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:25:36", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:26:51", "message": "Incoming request POST http://localhost:8000/jobs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:26:51", "message": "Response status: 401", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:29:58", "message": "Incoming request POST http://localhost:8000/jobs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:29:58", "message": "Response status: 401", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:30:20", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:30:20", "message": "Login attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 76}
+{"level": "INFO", "time": "2026-03-10 23:30:20", "message": "Login success: ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 91}
+{"level": "INFO", "time": "2026-03-10 23:30:20", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:31:30", "message": "Incoming request POST http://localhost:8000/jobs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:31:30", "message": "Response status: 401", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:32:05", "message": "Incoming request POST http://localhost:8000/jobs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:32:05", "message": "Response status: 401", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:32:44", "message": "Incoming request POST http://localhost:8000/jobs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-10 23:32:49", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:52:08", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 23:52:08", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:52:48", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 23:52:49", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-10 23:56:46", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-10 23:56:46", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}

@@ -57,17 +57,21 @@
 
 
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
 from app.schemas.job import JobCreate
 from app.crud.job import create_job, get_jobs, update_job_with_structured_data
 from app.services.job_parser import process_job
+from app.core.auth_dependency import get_current_user
 
 router = APIRouter(tags=["Jobs"])
 
 
 @router.post("/jobs")
-async def create_job_endpoint(job: JobCreate):
+async def create_job_endpoint(
+    job: JobCreate,
+    current_user: str = Depends(get_current_user),
+):
 
     # Step 1: Create job
     job_data = {
@@ -116,7 +120,7 @@ async def create_job_endpoint(job: JobCreate):
 
 
 @router.get("/jobs")
-async def list_jobs():
+async def list_jobs(current_user: str = Depends(get_current_user)):
     jobs = await get_jobs()
     for job in jobs:
         job["_id"] = str(job["_id"])
