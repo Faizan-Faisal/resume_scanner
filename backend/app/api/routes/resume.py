@@ -32,9 +32,10 @@ async def upload_zip(job_id: str, file: UploadFile = File(...)):
     if not file.filename.endswith(".zip"):
         raise AppException("INVALID_FILE_TYPE", "Only ZIP files allowed", 400)
 
-    job_resume_count = count_resumes_by_job(job_id)
     resume_limit = get_resume_limit_for_job(job_id)
-    if job_resume_count >= resume_limit:
+    current_count = await count_resumes_by_job(job_id)
+
+    if current_count >= resume_limit:
         raise AppException(
             "RESUME_LIMIT_EXCEEDED",
             f"Maximum {resume_limit} resumes allowed per job",
@@ -72,11 +73,11 @@ async def upload_zip(job_id: str, file: UploadFile = File(...)):
                 logger.warning(f"File too large skipped: {filename}")
                 continue
 
-            if count_resumes_by_job(job_id) >= resume_limit:
+            if current_count >= resume_limit:
                 logger.warning("Resume limit reached during ZIP upload")
                 break
 
-            resume_id = create_resume({
+            resume_id = await create_resume({
                 "job_id": job_id,
                 "filename": filename,
                 "source": "ZIP",
@@ -91,6 +92,7 @@ async def upload_zip(job_id: str, file: UploadFile = File(...)):
             )
 
             resumes_registered += 1
+            current_count += 1
 
     os.remove(temp_zip_path)
 
@@ -100,23 +102,23 @@ async def upload_zip(job_id: str, file: UploadFile = File(...)):
     }
 
 @router.get("/jobs/{job_id}/summary", response_model=JobSummaryOut)
-def job_summary(job_id: str):
-    return get_job_summary(job_id)
+async def job_summary(job_id: str):
+    return await get_job_summary(job_id)
 
 
 
 @router.get("/jobs/{job_id}/resumes", response_model=list[ResumeOut])
-def list_resumes(job_id: str, status: Optional[str] = None):
-    return get_resumes_by_job(job_id, status)
+async def list_resumes(job_id: str, status: Optional[str] = None):
+    return await get_resumes_by_job(job_id, status)
 
 @router.post("/jobs/{job_id}/resumes/gdrive")
-def upload_from_gdrive(job_id: str, folder_url: str):
+async def upload_from_gdrive(job_id: str, folder_url: str):
 
     # ✅ 1️⃣ Global limit check (same as ZIP)
     resume_limit = get_resume_limit_for_job(job_id)
-    job_resume_count = count_resumes_by_job(job_id)
+    current_count = await count_resumes_by_job(job_id)
 
-    if job_resume_count >= resume_limit:
+    if current_count >= resume_limit:
         raise AppException(
             "RESUME_LIMIT_EXCEEDED",
             f"Maximum {resume_limit} resumes allowed per job",
@@ -149,7 +151,7 @@ def upload_from_gdrive(job_id: str, folder_url: str):
     for file in files:
 
         # ✅ 2️⃣ Stop if limit reached during loop
-        if count_resumes_by_job(job_id) >= resume_limit:
+        if current_count >= resume_limit:
             logger.warning("Resume limit reached during GDrive upload")
             break
 
@@ -175,7 +177,7 @@ def upload_from_gdrive(job_id: str, folder_url: str):
             logger.warning(f"Failed to download {file['name']}: {str(e)}")
             continue
 
-        resume_id = create_resume({
+        resume_id = await create_resume({
             "job_id": job_id,
             "filename": file["name"],
             "source": "GoogleDrive",
@@ -190,6 +192,7 @@ def upload_from_gdrive(job_id: str, folder_url: str):
         )
 
         resumes_registered += 1
+        current_count += 1
 
     return {
         "message": "Google Drive folder processed",

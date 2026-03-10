@@ -1,23 +1,55 @@
-from fastapi import APIRouter, HTTPException
-from app.schemas.user import UserCreate, UserOut
-from app.crud.user import create_user, authenticate_user, generate_token
-from app.core.logging import logger
+from fastapi import APIRouter
+from app.schemas.user import *
+from app.core.auth_service import AuthService
 
-router = APIRouter(tags=["Auth"])
+router = APIRouter( tags=["Auth"])
 
-@router.post("/signup", response_model=UserOut)
-def signup(user: UserCreate):
-    logger.info(f"Signup attempt for email: {user.email}")
-    created = create_user(user.company_name, user.email, user.password)
-    if not created:
-        raise HTTPException(status_code=400, detail="Email already exists")
-    return {"company_name": created["company_name"], "email": created["email"]}
+auth_service = AuthService()
 
-@router.post("/login")
-def login(user: UserCreate):
-    logger.info(f"Login attempt for email: {user.email}")
-    authenticated = authenticate_user(user.email, user.password)
-    if not authenticated:
-        raise HTTPException(status_code=400, detail="Invalid credentials")
-    token = generate_token(authenticated)
+
+@router.post("/signup")
+async def signup(data: UserSignup):
+
+    await auth_service.signup(data)
+
+    return {"message": "Verification email sent"}
+
+
+@router.post("/verify")
+async def verify_email(data: EmailVerification):
+
+    await auth_service.verify_email(data.email, data.code)
+
+    return {"message": "Email verified successfully"}
+
+
+@router.post("/login", response_model=TokenResponse)
+async def login(data: UserLogin):
+
+    token = await auth_service.login(data)
+
     return {"access_token": token}
+
+
+@router.post("/forgot-password")
+async def forgot_password(data: ForgotPassword):
+
+    await auth_service.forgot_password(data.email)
+
+    return {
+        "message": "Password reset code sent to email"
+    }
+
+
+@router.post("/reset-password")
+async def reset_password(data: ResetPassword):
+
+    await auth_service.reset_password(
+        data.email,
+        data.code,
+        data.new_password
+    )
+
+    return {
+        "message": "Password reset successfully"
+    }

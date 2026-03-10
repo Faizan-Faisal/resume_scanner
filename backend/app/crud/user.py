@@ -1,33 +1,44 @@
-from app.db.mongodb import db
-from app.core.logging import logger
-from app.core.security import hash_password, verify_password, create_access_token
+from app.db.mongodb import users_collection
+from datetime import datetime
 
-def create_user(company_name: str, email: str, password: str):
-    logger.info(f"Creating user for email: {email}")
-    existing = db.users.find_one({"email": email})
-    if existing:
-        logger.warning(f"Cannot create user: email {email} already exists")
-        return None
 
-    hashed = hash_password(password)
-    user = {"company_name": company_name, "email": email, "password": hashed}
-    db.users.insert_one(user)
-    logger.info(f"User created: {email}")
-    return user
+async def get_user_by_email(email: str):
+    return await users_collection.find_one({"email": email})
 
-def authenticate_user(email: str, password: str):
-    logger.info(f"Authenticating user: {email}")
-    user = db.users.find_one({"email": email})
-    if not user:
-        logger.warning(f"User not found: {email}")
-        return None
-    if not verify_password(password, user["password"]):
-        logger.warning(f"Invalid password for user: {email}")
-        return None
-    logger.info(f"User authenticated: {email}")
-    return user
 
-def generate_token(user):
-    token = create_access_token({"sub": str(user["_id"]), "company": user["company_name"]})
-    logger.info(f"Token generated for user: {user['email']}")
-    return token
+async def create_user(user_data: dict):
+    user_data["created_at"] = datetime.utcnow()
+    user_data["is_verified"] = False
+    await users_collection.insert_one(user_data)
+
+
+async def verify_user(email: str):
+    await users_collection.update_one(
+        {"email": email},
+        {"$set": {"is_verified": True}}
+    )
+
+
+async def set_reset_code(email: str, code: str, expiry):
+    await users_collection.update_one(
+        {"email": email},
+        {
+            "$set": {
+                "reset_code": code,
+                "reset_expiry": expiry
+            }
+        }
+    )
+
+
+async def update_password(email: str, hashed_password: str):
+    await users_collection.update_one(
+        {"email": email},
+        {
+            "$set": {
+                "password": hashed_password,
+                "reset_code": None,
+                "reset_expiry": None
+            }
+        }
+    )

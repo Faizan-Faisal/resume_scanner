@@ -67,7 +67,7 @@ router = APIRouter(tags=["Jobs"])
 
 
 @router.post("/jobs")
-def create_job_endpoint(job: JobCreate):
+async def create_job_endpoint(job: JobCreate):
 
     # Step 1: Create job
     job_data = {
@@ -75,7 +75,7 @@ def create_job_endpoint(job: JobCreate):
         "description": job.description
     }
 
-    created_job = create_job(job_data)
+    created_job = await create_job(job_data)
     job_id = str(created_job["_id"])
 
     try:
@@ -87,7 +87,7 @@ def create_job_endpoint(job: JobCreate):
         )
 
         # Step 3: Update job with parsed data
-        updated_job = update_job_with_structured_data(
+        updated_job = await update_job_with_structured_data(
             job_id,
             structured_data
         )
@@ -95,7 +95,7 @@ def create_job_endpoint(job: JobCreate):
     except Exception as e:
 
         # Mark job as failed
-        update_job_with_structured_data(
+        await update_job_with_structured_data(
             job_id,
             {"status": "failed"}
         )
@@ -116,8 +116,8 @@ def create_job_endpoint(job: JobCreate):
 
 
 @router.get("/jobs")
-def list_jobs():
-    jobs = get_jobs()
+async def list_jobs():
+    jobs = await get_jobs()
     for job in jobs:
         job["_id"] = str(job["_id"])
     return jobs
