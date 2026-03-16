@@ -1,7 +1,7 @@
 import json
 from app.db.redis_client import async_redis_client
 from app.utils.ws_manager import manager
-from app.services.ranking_resumes import update_ranking
+
 
 async def listen_for_events():
 
@@ -20,24 +20,12 @@ async def listen_for_events():
 
         job_id = data["job_id"]
 
-        # event = {
-        #     "type": "resume_completed",
-        #     "resume_id": data["resume_id"],
-        #     "final_score": data["final_score"]
-        # }
-
-        # await manager.broadcast(job_id, event)
-        rank = await update_ranking(
-            job_id,
-            data["resume_id"],
-            data["final_score"]
-        )
-
         event = {
-            "type": "resume_ranked",
+            "type": "resume_processed",
             "resume_id": data["resume_id"],
-            "final_score": data["final_score"],
-            "rank": rank
+            "name": data.get("name"),
+            "email": data.get("email"),
+            "final_score": data["final_score"]
         }
 
         await manager.broadcast(job_id, event)

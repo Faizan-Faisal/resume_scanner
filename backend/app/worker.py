@@ -6,6 +6,7 @@ from app.db.redis_client import redis_client
 from app.db.mongodb import resumes_collection, jobs_collection
 from app.core.logging import logger
 
+from app.services.candidate_info import extract_candidate_info
 from app.services.resume_parser import extract_text
 from app.services.cleaner import clean_text
 from app.services.resume_matcher import (
@@ -90,7 +91,12 @@ def start_worker():
             # 1️⃣ Extract Resume Text
             raw_text = extract_text(resume["file_path"])
             cleaned_text = clean_text(raw_text)
+            
+            # NEW: Extract candidate information
+            candidate_info = extract_candidate_info(raw_text)
 
+            candidate_name = candidate_info.get("name")
+            candidate_email = candidate_info.get("email")
             # 2️⃣ Experience
             resume_experience = extract_resume_experience(cleaned_text)
 
@@ -131,6 +137,11 @@ def start_worker():
                 {
                     "$set": {
                         "status": "Completed",
+                        "candidate": {
+                            "name": candidate_name,
+                            "email": candidate_email
+                        },
+
                         "scores": {
                             "semantic_score": round(semantic_score, 3),
                             "skills_score": round(skills_score, 3),
@@ -149,10 +160,11 @@ def start_worker():
                 json.dumps({
                     "job_id": job_id,
                     "resume_id": resume_id,
-                    "final_score": final_score
+                    "final_score": final_score,
+                    "name": candidate_name,
+                    "email": candidate_email
                 })
             )
-
 
             # ✅ SAFE FILE CLEANUP AFTER SUCCESS
             file_path = resume["file_path"]
