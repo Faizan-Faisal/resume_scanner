@@ -47,6 +47,8 @@ async def create_job(job_data: dict):
 
     job_data["status"] = "processing"
     job_data["created_at"] = datetime.utcnow()
+     # convert owner_id to ObjectId
+    job_data["owner_id"] = ObjectId(job_data["owner_id"])
 
     result = await jobs_collection.insert_one(job_data)
 
@@ -80,9 +82,12 @@ async def update_job_with_structured_data(job_id: str, structured_data: dict):
     return job
 
 
-async def get_jobs():
+async def get_jobs(user_id: str):
 
-    cursor = jobs_collection.find({})
+    cursor = jobs_collection.find({
+        "owner_id": ObjectId(user_id)
+    })
+
     jobs = await cursor.to_list(length=None)
 
     for job in jobs:

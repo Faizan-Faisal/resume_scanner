@@ -1976,3 +1976,162 @@
 {"level": "INFO", "time": "2026-03-10 23:56:46", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
 {"level": "INFO", "time": "2026-03-10 23:58:51", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
 {"level": "INFO", "time": "2026-03-10 23:58:51", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:46:53", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 00:46:55", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:47:16", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:47:16", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 00:47:48", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 62}
+{"level": "INFO", "time": "2026-03-17 00:47:48", "message": "Queue size before pop: 0", "module": "worker", "funcName": "start_worker", "line_no": 70}
+{"level": "INFO", "time": "2026-03-17 00:48:03", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 00:48:04", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:48:12", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 00:48:12", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:48:31", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 00:48:32", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:49:36", "message": "Incoming request GET http://localhost:8000/", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 00:49:36", "message": "Root endpoint called", "module": "main", "funcName": "root", "line_no": 84}
+{"level": "INFO", "time": "2026-03-17 00:49:36", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:49:38", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 00:49:38", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:49:44", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 00:49:44", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:50:08", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 00:50:08", "message": "Login attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 76}
+{"level": "INFO", "time": "2026-03-17 00:50:09", "message": "Login success: ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 91}
+{"level": "INFO", "time": "2026-03-17 00:50:09", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:55:37", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 00:55:37", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 00:55:40", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 00:55:40", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 01:07:03", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 01:07:04", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 01:07:14", "message": "Incoming request GET http://localhost:8000/docs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 01:07:14", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 01:07:16", "message": "Incoming request GET http://localhost:8000/openapi.json", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 01:07:16", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 01:07:27", "message": "Incoming request GET http://localhost:8000/dashboard/stats", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 01:07:27", "message": "Response status: 401", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 01:08:00", "message": "Incoming request POST http://localhost:8000/auth/login", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 01:08:00", "message": "Login attempt for ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 76}
+{"level": "INFO", "time": "2026-03-17 01:08:01", "message": "Login success: ifaizanfaisal@gmail.com", "module": "auth_service", "funcName": "login", "line_no": 91}
+{"level": "INFO", "time": "2026-03-17 01:08:01", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 01:08:48", "message": "Incoming request GET http://localhost:8000/dashboard/stats", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "ERROR", "time": "2026-03-17 01:08:48", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-17 02:10:19", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:10:21", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:12:50", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:12:50", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:13:02", "message": "Incoming request GET http://localhost:8000/dashboard/stats", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 02:13:02", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:13:35", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:13:35", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:13:43", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:13:43", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:18:47", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:18:47", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:19:58", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:19:58", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:21:08", "message": "Incoming request POST http://localhost:8000/jobs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "WARNING", "time": "2026-03-17 02:21:08", "message": "Validation error: [{'type': 'value_error', 'loc': ('body', 'weightage_scheme'), 'msg': 'Value error, skills + experience must equal 0.7 because semantic is fixed at 0.3', 'input': {'skills': 0, 'experience': 0}, 'ctx': {'error': ValueError('skills + experience must equal 0.7 because semantic is fixed at 0.3')}}]", "module": "main", "funcName": "validation_exception_handler", "line_no": 43}
+{"level": "ERROR", "time": "2026-03-17 02:21:08", "message": "Unexpected server error", "module": "main", "funcName": "global_exception_handler", "line_no": 57}
+{"level": "INFO", "time": "2026-03-17 02:21:41", "message": "Incoming request POST http://localhost:8000/jobs", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 02:21:45", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:22:06", "message": "Incoming request GET http://localhost:8000/dashboard/stats", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 02:22:06", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:27:09", "message": "Incoming request GET http://localhost:8000/dashboard/stats", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 02:27:09", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:27:57", "message": "Incoming request POST http://localhost:8000/resumes/jobs/69b87465e3110a12745c2de4/resumes/gdrive?folder_url=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1_W_upc02hlHyROCfo7Yvti-8oesNFSr3", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 02:28:00", "message": "Resume registered: Soba.docx", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:28:00", "message": "GDrive resume pushed to queue: 69b875e0e3110a12745c2de5 | Current Queue Size: 1", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:28:02", "message": "Resume registered: Sohaib.docx", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:28:02", "message": "GDrive resume pushed to queue: 69b875e2e3110a12745c2de6 | Current Queue Size: 2", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:28:04", "message": "Resume registered: Ahmed_CV.pdf", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:28:04", "message": "GDrive resume pushed to queue: 69b875e4e3110a12745c2de7 | Current Queue Size: 3", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:28:08", "message": "Resume registered: Faizan_Faisal.pdf", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:28:08", "message": "GDrive resume pushed to queue: 69b875e8e3110a12745c2de8 | Current Queue Size: 4", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:28:09", "message": "Resume registered: bia_resume (1).pdf", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:28:09", "message": "GDrive resume pushed to queue: 69b875e9e3110a12745c2de9 | Current Queue Size: 5", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:28:09", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:28:17", "message": "Incoming request GET http://localhost:8000/dashboard/stats", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 02:28:17", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:28:22", "message": "Incoming request GET http://localhost:8000/dashboard/stats", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 02:28:22", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:28:54", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:28:54", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:29:14", "message": "Incoming request POST http://localhost:8000/resumes/jobs/69b87465e3110a12745c2de4/resumes/gdrive?folder_url=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1_W_upc02hlHyROCfo7Yvti-8oesNFSr3", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 02:29:18", "message": "Resume registered: Soba.docx", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:29:18", "message": "GDrive resume pushed to queue: 69b8762ee3110a12745c2dea | Current Queue Size: 6", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:29:20", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 62}
+{"level": "INFO", "time": "2026-03-17 02:29:20", "message": "Queue size before pop: 6", "module": "worker", "funcName": "start_worker", "line_no": 70}
+{"level": "INFO", "time": "2026-03-17 02:29:20", "message": "Picked resume_id: 69b875e0e3110a12745c2de5", "module": "worker", "funcName": "start_worker", "line_no": 74}
+{"level": "ERROR", "time": "2026-03-17 02:29:20", "message": "Error processing 69b875e0e3110a12745c2de5: '_asyncio.Future' object is not subscriptable", "module": "worker", "funcName": "start_worker", "line_no": 195}
+{"level": "INFO", "time": "2026-03-17 02:29:20", "message": "Resume registered: Sohaib.docx", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:29:20", "message": "GDrive resume pushed to queue: 69b87630e3110a12745c2deb | Current Queue Size: 6", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:29:22", "message": "Resume registered: Ahmed_CV.pdf", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:29:23", "message": "GDrive resume pushed to queue: 69b87632e3110a12745c2dec | Current Queue Size: 7", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:29:24", "message": "Resume registered: Faizan_Faisal.pdf", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:29:24", "message": "GDrive resume pushed to queue: 69b87634e3110a12745c2ded | Current Queue Size: 8", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:29:26", "message": "Resume registered: bia_resume (1).pdf", "module": "resume", "funcName": "create_resume", "line_no": 121}
+{"level": "INFO", "time": "2026-03-17 02:29:26", "message": "GDrive resume pushed to queue: 69b87636e3110a12745c2dee | Current Queue Size: 9", "module": "resume", "funcName": "upload_from_gdrive", "line_no": 206}
+{"level": "INFO", "time": "2026-03-17 02:29:26", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:33:11", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:33:11", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:35:10", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:35:10", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:35:18", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:35:18", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:35:24", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:35:24", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:37:08", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:37:08", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:37:31", "message": "Connected to Redis successfully (sync client)", "module": "redis_client", "funcName": "<module>", "line_no": 25}
+{"level": "INFO", "time": "2026-03-17 02:37:32", "message": "Connected to MongoDB at mongodb://localhost:27017", "module": "mongodb", "funcName": "<module>", "line_no": 40}
+{"level": "INFO", "time": "2026-03-17 02:37:37", "message": "Worker started. Waiting for jobs...", "module": "worker", "funcName": "start_worker", "line_no": 63}
+{"level": "INFO", "time": "2026-03-17 02:37:37", "message": "Queue size before pop: 9", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:37:37", "message": "Picked resume_id: 69b875e2e3110a12745c2de6", "module": "worker", "funcName": "start_worker", "line_no": 75}
+{"level": "INFO", "time": "2026-03-17 02:37:43", "message": "Deleted processed file: temp_uploads\\a2600622-7ed1-47a2-871c-d4b9e4ae826c\\Sohaib.docx", "module": "worker", "funcName": "start_worker", "line_no": 184}
+{"level": "INFO", "time": "2026-03-17 02:37:43", "message": "Successfully Completed: 69b875e2e3110a12745c2de6", "module": "worker", "funcName": "start_worker", "line_no": 193}
+{"level": "INFO", "time": "2026-03-17 02:37:43", "message": "Metrics \u2192 Processed: 1 | Failed: 0 | Remaining In Queue: 8", "module": "worker", "funcName": "start_worker", "line_no": 236}
+{"level": "INFO", "time": "2026-03-17 02:37:43", "message": "Queue size before pop: 8", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:37:43", "message": "Picked resume_id: 69b875e4e3110a12745c2de7", "module": "worker", "funcName": "start_worker", "line_no": 75}
+{"level": "INFO", "time": "2026-03-17 02:37:47", "message": "Deleted processed file: temp_uploads\\a2600622-7ed1-47a2-871c-d4b9e4ae826c\\Ahmed_CV.pdf", "module": "worker", "funcName": "start_worker", "line_no": 184}
+{"level": "INFO", "time": "2026-03-17 02:37:47", "message": "Successfully Completed: 69b875e4e3110a12745c2de7", "module": "worker", "funcName": "start_worker", "line_no": 193}
+{"level": "INFO", "time": "2026-03-17 02:37:47", "message": "Metrics \u2192 Processed: 2 | Failed: 0 | Remaining In Queue: 7", "module": "worker", "funcName": "start_worker", "line_no": 236}
+{"level": "INFO", "time": "2026-03-17 02:37:47", "message": "Queue size before pop: 7", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:37:47", "message": "Picked resume_id: 69b875e8e3110a12745c2de8", "module": "worker", "funcName": "start_worker", "line_no": 75}
+{"level": "INFO", "time": "2026-03-17 02:37:50", "message": "Deleted processed file: temp_uploads\\a2600622-7ed1-47a2-871c-d4b9e4ae826c\\Faizan_Faisal.pdf", "module": "worker", "funcName": "start_worker", "line_no": 184}
+{"level": "INFO", "time": "2026-03-17 02:37:50", "message": "Successfully Completed: 69b875e8e3110a12745c2de8", "module": "worker", "funcName": "start_worker", "line_no": 193}
+{"level": "INFO", "time": "2026-03-17 02:37:50", "message": "Metrics \u2192 Processed: 3 | Failed: 0 | Remaining In Queue: 6", "module": "worker", "funcName": "start_worker", "line_no": 236}
+{"level": "INFO", "time": "2026-03-17 02:37:50", "message": "Queue size before pop: 6", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:37:50", "message": "Picked resume_id: 69b875e9e3110a12745c2de9", "module": "worker", "funcName": "start_worker", "line_no": 75}
+{"level": "INFO", "time": "2026-03-17 02:37:54", "message": "Deleted processed file: temp_uploads\\a2600622-7ed1-47a2-871c-d4b9e4ae826c\\bia_resume (1).pdf", "module": "worker", "funcName": "start_worker", "line_no": 184}
+{"level": "INFO", "time": "2026-03-17 02:37:54", "message": "Successfully Completed: 69b875e9e3110a12745c2de9", "module": "worker", "funcName": "start_worker", "line_no": 193}
+{"level": "INFO", "time": "2026-03-17 02:37:54", "message": "Metrics \u2192 Processed: 4 | Failed: 0 | Remaining In Queue: 5", "module": "worker", "funcName": "start_worker", "line_no": 236}
+{"level": "INFO", "time": "2026-03-17 02:37:54", "message": "Queue size before pop: 5", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:37:54", "message": "Picked resume_id: 69b8762ee3110a12745c2dea", "module": "worker", "funcName": "start_worker", "line_no": 75}
+{"level": "INFO", "time": "2026-03-17 02:37:58", "message": "Deleted processed file: temp_uploads\\7cd615e0-2ff4-4989-a1c3-148dab8c8771\\Soba.docx", "module": "worker", "funcName": "start_worker", "line_no": 184}
+{"level": "INFO", "time": "2026-03-17 02:37:58", "message": "Successfully Completed: 69b8762ee3110a12745c2dea", "module": "worker", "funcName": "start_worker", "line_no": 193}
+{"level": "INFO", "time": "2026-03-17 02:37:58", "message": "Metrics \u2192 Processed: 5 | Failed: 0 | Remaining In Queue: 4", "module": "worker", "funcName": "start_worker", "line_no": 236}
+{"level": "INFO", "time": "2026-03-17 02:37:58", "message": "Queue size before pop: 4", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:37:58", "message": "Picked resume_id: 69b87630e3110a12745c2deb", "module": "worker", "funcName": "start_worker", "line_no": 75}
+{"level": "INFO", "time": "2026-03-17 02:38:02", "message": "Deleted processed file: temp_uploads\\7cd615e0-2ff4-4989-a1c3-148dab8c8771\\Sohaib.docx", "module": "worker", "funcName": "start_worker", "line_no": 184}
+{"level": "INFO", "time": "2026-03-17 02:38:02", "message": "Successfully Completed: 69b87630e3110a12745c2deb", "module": "worker", "funcName": "start_worker", "line_no": 193}
+{"level": "INFO", "time": "2026-03-17 02:38:02", "message": "Metrics \u2192 Processed: 6 | Failed: 0 | Remaining In Queue: 3", "module": "worker", "funcName": "start_worker", "line_no": 236}
+{"level": "INFO", "time": "2026-03-17 02:38:02", "message": "Queue size before pop: 3", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:38:02", "message": "Picked resume_id: 69b87632e3110a12745c2dec", "module": "worker", "funcName": "start_worker", "line_no": 75}
+{"level": "INFO", "time": "2026-03-17 02:38:11", "message": "Deleted processed file: temp_uploads\\7cd615e0-2ff4-4989-a1c3-148dab8c8771\\Ahmed_CV.pdf", "module": "worker", "funcName": "start_worker", "line_no": 184}
+{"level": "INFO", "time": "2026-03-17 02:38:11", "message": "Successfully Completed: 69b87632e3110a12745c2dec", "module": "worker", "funcName": "start_worker", "line_no": 193}
+{"level": "INFO", "time": "2026-03-17 02:38:11", "message": "Metrics \u2192 Processed: 7 | Failed: 0 | Remaining In Queue: 2", "module": "worker", "funcName": "start_worker", "line_no": 236}
+{"level": "INFO", "time": "2026-03-17 02:38:11", "message": "Queue size before pop: 2", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:38:11", "message": "Picked resume_id: 69b87634e3110a12745c2ded", "module": "worker", "funcName": "start_worker", "line_no": 75}
+{"level": "INFO", "time": "2026-03-17 02:38:34", "message": "Deleted processed file: temp_uploads\\7cd615e0-2ff4-4989-a1c3-148dab8c8771\\Faizan_Faisal.pdf", "module": "worker", "funcName": "start_worker", "line_no": 184}
+{"level": "INFO", "time": "2026-03-17 02:38:34", "message": "Successfully Completed: 69b87634e3110a12745c2ded", "module": "worker", "funcName": "start_worker", "line_no": 193}
+{"level": "INFO", "time": "2026-03-17 02:38:34", "message": "Metrics \u2192 Processed: 8 | Failed: 0 | Remaining In Queue: 1", "module": "worker", "funcName": "start_worker", "line_no": 236}
+{"level": "INFO", "time": "2026-03-17 02:38:34", "message": "Queue size before pop: 1", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:38:34", "message": "Picked resume_id: 69b87636e3110a12745c2dee", "module": "worker", "funcName": "start_worker", "line_no": 75}
+{"level": "INFO", "time": "2026-03-17 02:38:43", "message": "Deleted processed file: temp_uploads\\7cd615e0-2ff4-4989-a1c3-148dab8c8771\\bia_resume (1).pdf", "module": "worker", "funcName": "start_worker", "line_no": 184}
+{"level": "INFO", "time": "2026-03-17 02:38:43", "message": "Successfully Completed: 69b87636e3110a12745c2dee", "module": "worker", "funcName": "start_worker", "line_no": 193}
+{"level": "INFO", "time": "2026-03-17 02:38:43", "message": "Metrics \u2192 Processed: 9 | Failed: 0 | Remaining In Queue: 0", "module": "worker", "funcName": "start_worker", "line_no": 236}
+{"level": "INFO", "time": "2026-03-17 02:38:43", "message": "Queue size before pop: 0", "module": "worker", "funcName": "start_worker", "line_no": 71}
+{"level": "INFO", "time": "2026-03-17 02:39:03", "message": "Incoming request GET http://localhost:8000/dashboard/stats", "module": "main", "funcName": "logging_middleware", "line_no": 23}
+{"level": "INFO", "time": "2026-03-17 02:39:03", "message": "Response status: 200", "module": "main", "funcName": "logging_middleware", "line_no": 25}

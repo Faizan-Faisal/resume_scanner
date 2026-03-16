@@ -74,17 +74,43 @@
 
 
 
-from app.db.mongodb import resumes_collection
 from app.core.logging import logger
 from datetime import datetime
 from bson import ObjectId
+from app.db.mongodb import resumes_collection, jobs_collection
+
 
 
 async def count_resumes_by_job(job_id: str):
     return await resumes_collection.count_documents({"job_id": job_id})
 
 
+# async def create_resume(resume_data: dict):
+#     resume_data["created_at"] = datetime.utcnow()
+#     resume_data["status"] = "Queued"
+#     resume_data["retry_count"] = 0
+#     resume_data["error_message"] = None
+
+#     result = await resumes_collection.insert_one(resume_data)
+
+#     logger.info(f"Resume registered: {resume_data['filename']}")
+
+#     return str(result.inserted_id)
+
+
+
 async def create_resume(resume_data: dict):
+
+    job_id = resume_data["job_id"]
+
+    # 🔹 Get job to retrieve owner_id
+    job = await jobs_collection.find_one({"_id": ObjectId(job_id)})
+
+    if not job:
+        raise Exception("Job not found")
+
+    resume_data["owner_id"] = job["owner_id"]
+
     resume_data["created_at"] = datetime.utcnow()
     resume_data["status"] = "Queued"
     resume_data["retry_count"] = 0

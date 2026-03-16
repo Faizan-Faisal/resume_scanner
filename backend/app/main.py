@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from app.api.routes import auth, job, resume, websocket, ranking_routes
+from app.api.routes import auth, job, resume, websocket, ranking_routes, dashboard
 from app.core.logging import logger
 import uuid
 from app.db.redis_client import redis_client
@@ -71,6 +71,7 @@ app.include_router(job.router, )
 app.include_router(resume.router, prefix="/resumes")
 app.include_router(websocket.router)
 app.include_router(ranking_routes.router)
+app.include_router(dashboard.router)
 
 @app.on_event("startup")
 async def startup_event():

@@ -1,4 +1,5 @@
 import json
+import asyncio
 from bson import ObjectId
 from datetime import datetime
 import os
@@ -24,7 +25,7 @@ QUEUE_NAME = "resume_queue"
 MAX_RETRIES = 3
 
 
-def get_job_data(job_id: str):
+async def get_job_data(job_id: str):
     """
     Fetch job metadata from Redis.
     Fallback to MongoDB if not found.
@@ -36,7 +37,7 @@ def get_job_data(job_id: str):
         return json.loads(cached_job)
 
     # Fallback safety
-    job = jobs_collection.find_one({"_id": ObjectId(job_id)})
+    job = await jobs_collection.find_one({"_id": ObjectId(job_id)})
 
     if not job:
         raise Exception("Job not found")
@@ -58,7 +59,7 @@ def get_job_data(job_id: str):
     return job_data
 
 
-def start_worker():
+async def start_worker():
     logger.info("Worker started. Waiting for jobs...")
 
     processed_count = 0
@@ -74,19 +75,19 @@ def start_worker():
         logger.info(f"Picked resume_id: {resume_id}")
 
         try:
-            resumes_collection.update_one(
+            await resumes_collection.update_one(
                 {"_id": ObjectId(resume_id)},
                 {"$set": {"status": "Processing"}}
             )
 
-            resume = resumes_collection.find_one(
+            resume = await resumes_collection.find_one(
                 {"_id": ObjectId(resume_id)}
             )
 
             job_id = str(resume["job_id"])
 
             # 🔥 Fetch job from Redis (optimized)
-            job_data = get_job_data(job_id)
+            job_data = await get_job_data(job_id)
 
             # 1️⃣ Extract Resume Text
             raw_text = extract_text(resume["file_path"])
@@ -132,7 +133,7 @@ def start_worker():
                 weights
             )
             # 6️⃣ Update Resume
-            resumes_collection.update_one(
+            await resumes_collection.update_one(
                 {"_id": ObjectId(resume_id)},
                 {
                     "$set": {
@@ -166,6 +167,15 @@ def start_worker():
                 })
             )
 
+
+            # 🔥 UPDATE DASHBOARD REDIS STATS
+            owner_id = str(resume["owner_id"])  # assuming resume stores owner_id
+            key = f"dashboard:stats:{owner_id}"
+            redis_client.hincrby(key, "resumes_scanned", 1)
+            redis_client.hincrbyfloat(key, "score_sum", final_score)
+            redis_client.hincrby(key, "score_count", 1)
+
+
             # ✅ SAFE FILE CLEANUP AFTER SUCCESS
             file_path = resume["file_path"]
 
@@ -185,13 +195,13 @@ def start_worker():
         except Exception as e:
             logger.error(f"Error processing {resume_id}: {str(e)}")
 
-            resume = resumes_collection.find_one(
+            resume = await resumes_collection.find_one(
                 {"_id": ObjectId(resume_id)}
             )
             retry_count = resume.get("retry_count", 0)
 
             if retry_count < MAX_RETRIES:
-                resumes_collection.update_one(
+                await resumes_collection.update_one(
                     {"_id": ObjectId(resume_id)},
                     {
                         "$inc": {"retry_count": 1},
@@ -208,7 +218,7 @@ def start_worker():
                 )
 
             else:
-                resumes_collection.update_one(
+                await resumes_collection.update_one(
                     {"_id": ObjectId(resume_id)},
                     {
                         "$set": {
@@ -231,4 +241,4 @@ def start_worker():
 
 
 if __name__ == "__main__":
-    start_worker()
+    asyncio.run(start_worker())
