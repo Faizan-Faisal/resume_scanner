@@ -88,10 +88,10 @@ GET /jobs/{job_id}/stats
 Example:
 
 {
-  "total_resumes": 124,
-  "processed": 110,
-  "queued": 14,
-  "avg_score": 62.3
+  "total_jobs": 4,
+  "resume scanned": 110,
+  "avg_score": 62.3,
+  "active jobs": 2
 }
 
 This shows real-time analytics.
