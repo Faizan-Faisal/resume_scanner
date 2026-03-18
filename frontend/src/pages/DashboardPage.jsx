@@ -1,0 +1,240 @@
+import React from 'react';
+import { useApp } from '../context/AppContext.jsx';
+import { mockCandidates } from '../data/mockData.jsx';
+import ScanView from '../components/ScanView.jsx';
+import NewJobSection from '../components/NewJobSection.jsx';
+
+/* ── Sidebar ── */
+function Sidebar() {
+  const { dashSection, showDash, logout, showToast } = useApp();
+
+  const navItems = [
+    { id: 'overview', icon: '🏠', label: 'Overview' },
+    { id: 'new-job',  icon: '✚', label: 'New Job' },
+    { id: 'history',  icon: '📋', label: 'Job History' },
+  ];
+
+  const SideItem = ({ id, icon, label, onClick }) => {
+    const active = dashSection === id;
+    return (
+      <button
+        className="flex items-center gap-3 w-full px-5 py-2.5 text-sm border-none bg-transparent cursor-pointer transition-all duration-200 font-dm text-left"
+        style={{
+          color:       active ? 'var(--accent)' : 'var(--text2)',
+          background:  active ? 'rgba(79,126,255,0.07)' : 'transparent',
+          borderLeft:  active ? '2px solid var(--accent)' : '2px solid transparent',
+        }}
+        onMouseEnter={e => { if (!active) { e.currentTarget.style.color = 'var(--text)'; e.currentTarget.style.background = 'var(--surface)'; } }}
+        onMouseLeave={e => { if (!active) { e.currentTarget.style.color = 'var(--text2)'; e.currentTarget.style.background = 'transparent'; } }}
+        onClick={onClick || (() => showDash(id))}
+      >
+        <span className="text-base w-5 text-center">{icon}</span>
+        {label}
+      </button>
+    );
+  };
+
+  return (
+    <aside
+      className="fixed top-[70px] bottom-0 left-0 w-60 flex flex-col border-r overflow-y-auto transition-all duration-300"
+      style={{ background: 'var(--bg2)', borderColor: 'var(--border)' }}
+    >
+      <div className="px-5 py-6 border-b" style={{ borderColor: 'var(--border)' }}>
+        <div className="font-syne font-bold text-sm mb-0.5" style={{ color: 'var(--text)' }}>Sarah Connor</div>
+        <div className="text-xs" style={{ color: 'var(--text3)' }}>sarah@company.com</div>
+      </div>
+
+      <div className="px-5 pt-5 pb-1 text-[0.65rem] tracking-widest uppercase font-medium" style={{ color: 'var(--text3)' }}>Main</div>
+      {navItems.map(i => <SideItem key={i.id} {...i} />)}
+
+      <div className="px-5 pt-5 pb-1 text-[0.65rem] tracking-widest uppercase font-medium" style={{ color: 'var(--text3)' }}>Account</div>
+      <SideItem id="settings" icon="⚙️" label="Settings" onClick={() => showToast('Settings coming soon', 'info')} />
+      <SideItem id="logout"   icon="↩️" label="Log out"  onClick={logout} />
+    </aside>
+  );
+}
+
+/* ── Overview ── */
+function OverviewSection() {
+  const { showDash, setModal } = useApp();
+
+  const stats = [
+    { label: 'Total Jobs',       value: '7',   change: '↑ 2 this week' },
+    { label: 'Resumes Scanned',  value: '342', change: '↑ 48 today' },
+    { label: 'Avg. Score',       value: '71%', change: '↑ 3% vs last month' },
+    { label: 'Active Jobs',      value: '2',   change: '3 completed' },
+  ];
+
+  return (
+    <>
+      <div className="mb-10">
+        <div className="text-sm mb-1" style={{ color: 'var(--text2)' }}>Good morning 👋</div>
+        <div className="font-syne font-extrabold text-3xl" style={{ color: 'var(--text)' }}>Dashboard</div>
+      </div>
+
+      {/* Stat cards */}
+      <div className="grid gap-5 mb-12" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))' }}>
+        {stats.map(s => (
+          <div key={s.label} className="rounded-xl p-6 border transition-all duration-300"
+            style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+            <div className="text-xs uppercase tracking-wider mb-2" style={{ color: 'var(--text2)' }}>{s.label}</div>
+            <div className="font-syne font-extrabold text-3xl mb-1" style={{ color: 'var(--text)' }}>{s.value}</div>
+            <div className="text-xs" style={{ color: 'var(--accent2)' }}>{s.change}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Recent jobs heading */}
+      <div className="flex items-center justify-between font-syne font-bold text-xl mb-5" style={{ color: 'var(--text)' }}>
+        Recent Jobs
+        <button className="px-4 py-1.5 rounded-lg border bg-transparent text-sm font-dm cursor-pointer transition-all duration-200"
+          style={{ borderColor: 'var(--border2)', color: 'var(--text2)' }}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border2)'; e.currentTarget.style.color = 'var(--text2)'; }}
+          onClick={() => showDash('history')}>View all</button>
+      </div>
+
+      {/* Job cards */}
+      <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))' }}>
+        {/* Live job */}
+        <JobCard onClick={() => showDash('scanning')}>
+          <div className="flex items-center justify-between mb-1">
+            <div className="font-syne font-bold" style={{ color: 'var(--text)' }}>Senior Frontend Engineer</div>
+            <Badge type="processing">Live</Badge>
+          </div>
+          <div className="flex gap-4 text-xs mb-4" style={{ color: 'var(--text2)' }}>
+            <span>📁 48 resumes</span><span>📅 Today</span>
+          </div>
+          <div className="h-1.5 rounded-full overflow-hidden mb-1" style={{ background: 'var(--bg3)' }}>
+            <div className="h-full rounded-full" style={{ width: '62%', background: 'linear-gradient(90deg,var(--accent),var(--accent2))' }} />
+          </div>
+          <div className="text-xs" style={{ color: 'var(--text2)' }}>62% complete</div>
+        </JobCard>
+
+        {/* Done job */}
+        <JobCard onClick={() => setModal({ type: 'jobDetail', data: { title: 'Backend Engineer', score: 85 } })}>
+          <div className="flex items-center justify-between mb-1">
+            <div className="font-syne font-bold" style={{ color: 'var(--text)' }}>Backend Engineer</div>
+            <Badge type="completed">Done</Badge>
+          </div>
+          <div className="flex gap-4 text-xs mb-4" style={{ color: 'var(--text2)' }}>
+            <span>📁 32 resumes</span><span>📅 Yesterday</span>
+          </div>
+          <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: 'var(--border)' }}>
+            <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text2)' }}>
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent2)' }} />
+              Top: Alex Johnson — 91%
+            </div>
+          </div>
+        </JobCard>
+
+        {/* New job */}
+        <JobCard onClick={() => showDash('new-job')}>
+          <div className="flex flex-col items-center justify-center h-full min-h-[120px] gap-2 rounded-xl border-2 border-dashed"
+            style={{ borderColor: 'var(--border2)', color: 'var(--text2)' }}>
+            <div className="text-3xl opacity-40">+</div>
+            <div className="text-sm font-medium">Create new job</div>
+          </div>
+        </JobCard>
+      </div>
+    </>
+  );
+}
+
+/* ── History ── */
+function HistorySection() {
+  const { jobHistory, showDash, setModal } = useApp();
+  return (
+    <>
+      <div className="mb-10">
+        <div className="text-sm mb-1" style={{ color: 'var(--text2)' }}>All past scans</div>
+        <div className="font-syne font-extrabold text-3xl" style={{ color: 'var(--text)' }}>Job History</div>
+      </div>
+      <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))' }}>
+        {jobHistory.map((j, i) => (
+          <JobCard key={i} onClick={() => setModal({ type: 'jobDetail', data: { title: j.title, score: 80 + i } })}>
+            <div className="flex items-center justify-between mb-1">
+              <div className="font-syne font-bold" style={{ color: 'var(--text)' }}>{j.title}</div>
+              <Badge type="completed">✓ Done</Badge>
+            </div>
+            <div className="flex gap-4 text-xs mb-4" style={{ color: 'var(--text2)' }}>
+              <span>📁 {j.count} resumes</span><span>📅 {j.date}</span>
+            </div>
+            <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: 'var(--border)' }}>
+              <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text2)' }}>
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent2)' }} />
+                Top: {j.top}
+              </div>
+              <button className="px-3 py-1 rounded-md border bg-transparent text-xs cursor-pointer"
+                style={{ borderColor: 'var(--border2)', color: 'var(--text2)' }}>View →</button>
+            </div>
+          </JobCard>
+        ))}
+        <JobCard onClick={() => showDash('new-job')}>
+          <div className="flex flex-col items-center justify-center h-full min-h-[120px] gap-2 rounded-xl border-2 border-dashed"
+            style={{ borderColor: 'var(--border2)', color: 'var(--text2)' }}>
+            <div className="text-3xl opacity-40">+</div>
+            <div className="text-sm font-medium">New job</div>
+          </div>
+        </JobCard>
+      </div>
+    </>
+  );
+}
+
+/* ── Scanning standalone ── */
+function ScanningSection() {
+  return (
+    <>
+      <div className="mb-10">
+        <div className="text-sm mb-1" style={{ color: 'var(--text2)' }}>Senior Frontend Engineer</div>
+        <div className="font-syne font-extrabold text-3xl" style={{ color: 'var(--text)' }}>Live Scan Results</div>
+      </div>
+      <ScanView jobTitle="Senior Frontend Engineer" initialData={mockCandidates.slice(0, 5)} />
+    </>
+  );
+}
+
+/* ── Shared small components ── */
+function JobCard({ children, onClick }) {
+  return (
+    <div
+      className="rounded-2xl p-6 border cursor-pointer transition-all duration-200"
+      style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}
+      onClick={onClick}
+      onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(79,126,255,0.3)'; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 0 40px rgba(79,126,255,0.15)'; }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = ''; }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function Badge({ type, children }) {
+  const styles = {
+    completed:  { bg: 'var(--badge-done-bg,rgba(0,212,170,0.12))',   color: 'var(--accent2)' },
+    processing: { bg: 'var(--badge-live-bg,rgba(79,126,255,0.12))',  color: 'var(--accent)'  },
+    draft:      { bg: 'rgba(255,255,255,0.06)',                       color: 'var(--text2)'   },
+  };
+  const s = styles[type] || styles.draft;
+  return (
+    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
+      style={{ background: s.bg, color: s.color }}>{children}</span>
+  );
+}
+
+/* ── Root dashboard ── */
+export default function DashboardPage() {
+  const { dashSection } = useApp();
+  return (
+    <div className="flex min-h-screen pt-[70px] animate-fade-in" style={{ background: 'var(--bg)' }}>
+      <Sidebar />
+      <main className="flex-1 ml-60 p-10">
+        {dashSection === 'overview'  && <OverviewSection />}
+        {dashSection === 'new-job'   && <NewJobSection />}
+        {dashSection === 'history'   && <HistorySection />}
+        {dashSection === 'scanning'  && <ScanningSection />}
+      </main>
+    </div>
+  );
+}
