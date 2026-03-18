@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
 
 import Sidebar from './components/Sidebar.jsx';
@@ -8,7 +8,13 @@ import ScanningSection from './sections/ScanningSection.jsx';
 import NewJobSection from './sections/NewJobSection.jsx';
 
 export default function DashboardPage() {
-  const { dashSection } = useApp();
+  const { dashSection, refreshJobs, showToast } = useApp();
+
+  useEffect(() => {
+    refreshJobs().catch(() => {
+      showToast('Failed to load jobs. Please login again.', 'error');
+    });
+  }, [refreshJobs, showToast]);
 
   return (
     <div className="flex min-h-screen pt-[70px] animate-fade-in" style={{ background: 'var(--bg)' }}>

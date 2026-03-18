@@ -4,14 +4,9 @@ import JobCard from '../components/JobCard.jsx';
 import Badge from '../components/Badge.jsx';
 
 export default function OverviewSection() {
-  const { showDash, setModal } = useApp();
-
-  const stats = [
-    { label: 'Total Jobs', value: '7', change: '↑ 2 this week' },
-    { label: 'Resumes Scanned', value: '342', change: '↑ 48 today' },
-    { label: 'Avg. Score', value: '71%', change: '↑ 3% vs last month' },
-    { label: 'Active Jobs', value: '2', change: '3 completed' },
-  ];
+  const { showDash, setModal, jobs, jobsLoading } = useApp();
+  const activeJobs = (jobs || []).filter(j => (j.status || '').toLowerCase() !== 'closed');
+  const recentJobs = (jobs || []).slice(0, 3);
 
   return (
     <>
@@ -22,7 +17,12 @@ export default function OverviewSection() {
 
       {/* Stat cards */}
       <div className="grid gap-5 mb-12" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))' }}>
-        {stats.map(s => (
+        {[
+          { label: 'Total Jobs', value: String((jobs || []).length), change: 'From your account' },
+          { label: 'Active Jobs', value: String(activeJobs.length), change: 'Not closed yet' },
+          { label: 'Resumes Scanned', value: '—', change: 'Coming soon' },
+          { label: 'Avg. Score', value: '—', change: 'Coming soon' },
+        ].map(s => (
           <div
             key={s.label}
             className="rounded-xl p-6 border transition-all duration-300"
@@ -60,40 +60,35 @@ export default function OverviewSection() {
 
       {/* Job cards */}
       <div className="grid gap-5" style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))' }}>
-        {/* Live job */}
-        <JobCard onClick={() => showDash('scanning')}>
-          <div className="flex items-center justify-between mb-1">
-            <div className="font-syne font-bold" style={{ color: 'var(--text)' }}>Senior Frontend Engineer</div>
-            <Badge type="processing">Live</Badge>
-          </div>
-          <div className="flex gap-4 text-xs mb-4" style={{ color: 'var(--text2)' }}>
-            <span>📁 48 resumes</span><span>📅 Today</span>
-          </div>
-          <div className="h-1.5 rounded-full overflow-hidden mb-1" style={{ background: 'var(--bg3)' }}>
-            <div
-              className="h-full rounded-full"
-              style={{ width: '62%', background: 'linear-gradient(90deg,var(--accent),var(--accent2))' }}
-            />
-          </div>
-          <div className="text-xs" style={{ color: 'var(--text2)' }}>62% complete</div>
-        </JobCard>
+        {jobsLoading && (
+          <div className="text-sm" style={{ color: 'var(--text2)' }}>Loading jobs...</div>
+        )}
 
-        {/* Done job */}
-        <JobCard onClick={() => setModal({ type: 'jobDetail', data: { title: 'Backend Engineer', score: 85 } })}>
-          <div className="flex items-center justify-between mb-1">
-            <div className="font-syne font-bold" style={{ color: 'var(--text)' }}>Backend Engineer</div>
-            <Badge type="completed">Done</Badge>
-          </div>
-          <div className="flex gap-4 text-xs mb-4" style={{ color: 'var(--text2)' }}>
-            <span>📁 32 resumes</span><span>📅 Yesterday</span>
-          </div>
-          <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: 'var(--border)' }}>
-            <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text2)' }}>
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent2)' }} />
-              Top: Alex Johnson — 91%
+        {!jobsLoading && recentJobs.map((j) => (
+          <JobCard key={j._id || j.id} onClick={() => setModal({ type: 'jobDetail', data: j })}>
+            <div className="flex items-center justify-between mb-1">
+              <div className="font-syne font-bold" style={{ color: 'var(--text)' }}>{j.title}</div>
+              <Badge type={(j.status || '').toLowerCase() === 'completed' ? 'completed' : 'processing'}>
+                {(j.status || 'Open')}
+              </Badge>
             </div>
-          </div>
-        </JobCard>
+            <div className="text-xs mb-4" style={{ color: 'var(--text2)' }}>
+              <span>📅 {j.created_at ? String(j.created_at).slice(0, 10) : '—'}</span>
+            </div>
+            <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: 'var(--border)' }}>
+              <div className="text-xs" style={{ color: 'var(--text2)' }}>
+                Min exp: <span style={{ color: 'var(--text)' }}>{j.min_experience ?? '—'}</span>
+              </div>
+              <button
+                className="px-3 py-1 rounded-md border bg-transparent text-xs cursor-pointer"
+                style={{ borderColor: 'var(--border2)', color: 'var(--text2)' }}
+                onClick={(e) => { e.stopPropagation(); setModal({ type: 'jobDetail', data: j }); }}
+              >
+                Job details →
+              </button>
+            </div>
+          </JobCard>
+        ))}
 
         {/* New job */}
         <JobCard onClick={() => showDash('new-job')}>

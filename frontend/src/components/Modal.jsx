@@ -1,6 +1,5 @@
 import React from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { mockCandidates } from '../data/mockData.jsx';
 
 /* ── small helpers ── */
 function Tag({ label }) {
@@ -116,56 +115,61 @@ function CandidateModal({ c, onClose }) {
 }
 
 /* ── Job detail ── */
-function JobDetailModal({ title, score, onClose }) {
-  const { showToast, showDash } = useApp();
+function JobDetailModal({ job, onClose }) {
+  const weights = job?.weights || job?.weightage_scheme || {};
+  const requiredSkills = job?.required_skills || [];
 
   return (
     <>
       <div className="flex items-start justify-between mb-6">
         <div>
-          <div className="font-syne font-bold text-xl" style={{ color: 'var(--text)' }}>{title}</div>
-          <div className="text-sm mt-0.5" style={{ color: 'var(--text2)' }}>Completed scan · 32 resumes</div>
+          <div className="font-syne font-bold text-xl" style={{ color: 'var(--text)' }}>{job?.title}</div>
+          <div className="text-sm mt-0.5" style={{ color: 'var(--text2)' }}>
+            Status: <span style={{ color: 'var(--text)' }}>{job?.status || '—'}</span>
+            {' · '}
+            Created: <span style={{ color: 'var(--text)' }}>{job?.created_at ? String(job.created_at).slice(0, 10) : '—'}</span>
+          </div>
         </div>
         <button onClick={onClose} className="text-xl leading-none bg-none border-none cursor-pointer" style={{ color: 'var(--text2)' }}>✕</button>
       </div>
 
-      {/* Stats */}
+      {/* Summary cards */}
       <div className="grid grid-cols-3 gap-4 mb-6">
-        {[['Scanned','32'],['Avg Score',`${score}%`],['Top Match','91%']].map(([l,v]) => (
+        {[
+          ['Min Experience', job?.min_experience ?? '—'],
+          ['Skills Weight', weights?.skills ?? '—'],
+          ['Experience Weight', weights?.experience ?? '—'],
+        ].map(([l, v]) => (
           <div key={l} className="rounded-xl p-5 border" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
             <div className="text-xs uppercase tracking-wider mb-2" style={{ color: 'var(--text2)' }}>{l}</div>
-            <div className="font-syne font-extrabold text-2xl" style={{ color: 'var(--text)' }}>{v}</div>
+            <div className="font-syne font-extrabold text-2xl" style={{ color: 'var(--text)' }}>{String(v)}</div>
           </div>
         ))}
       </div>
 
-      {/* Top candidates */}
-      <div className="font-syne font-bold mb-4" style={{ color: 'var(--text)' }}>Top Candidates</div>
-      {mockCandidates.slice(0, 4).map((c, i) => (
-        <div key={c.name} className="flex items-center gap-4 py-3 border-b" style={{ borderColor: 'var(--border)' }}>
-          <div className="w-6 font-syne font-extrabold" style={{ color: i < 3 ? 'var(--accent2)' : 'var(--text3)' }}>{i + 1}</div>
-          <div className="flex-1">
-            <div className="font-medium text-sm" style={{ color: 'var(--text)' }}>{c.name}</div>
-            <div className="text-xs" style={{ color: 'var(--text2)' }}>{c.role}</div>
-          </div>
-          <div className="font-syne font-bold" style={{ color: c.score >= 85 ? 'var(--accent2)' : 'var(--accent)' }}>{c.score}%</div>
+      {/* Description */}
+      <div className="font-syne font-bold mb-3" style={{ color: 'var(--text)' }}>Job Description</div>
+      <div className="text-sm leading-relaxed mb-6 whitespace-pre-wrap" style={{ color: 'var(--text2)' }}>
+        {job?.description || '—'}
+      </div>
+
+      {/* Required skills */}
+      <div className="font-syne font-bold mb-3" style={{ color: 'var(--text)' }}>Required Skills</div>
+      {requiredSkills.length ? (
+        <div className="flex flex-wrap gap-2 mb-6">
+          {requiredSkills.map((s) => <Tag key={String(s)} label={String(s)} />)}
         </div>
-      ))}
+      ) : (
+        <div className="text-sm mb-6" style={{ color: 'var(--text2)' }}>—</div>
+      )}
 
       <div className="flex gap-3 mt-6">
         <button
           className="flex-1 py-3 px-6 rounded-xl text-white font-medium cursor-pointer border-none"
           style={{ background: 'var(--accent)' }}
-          onClick={() => { showDash('scanning'); onClose(); }}
+          onClick={onClose}
         >
-          View Full Results
-        </button>
-        <button
-          className="py-3 px-6 rounded-xl font-medium border cursor-pointer bg-transparent"
-          style={{ borderColor: 'var(--border2)', color: 'var(--text2)' }}
-          onClick={() => { showToast('Exported to CSV', 'info'); onClose(); }}
-        >
-          Export CSV
+          Close
         </button>
       </div>
     </>
@@ -188,7 +192,7 @@ export default function Modal() {
         style={{ background: 'var(--surface)', borderColor: 'var(--border2)', boxShadow: '0 24px 80px rgba(0,0,0,0.25)' }}
       >
         {modal.type === 'candidate' && <CandidateModal c={modal.data} onClose={() => setModal(null)} />}
-        {modal.type === 'jobDetail' && <JobDetailModal title={modal.data.title} score={modal.data.score} onClose={() => setModal(null)} />}
+        {modal.type === 'jobDetail' && <JobDetailModal job={modal.data} onClose={() => setModal(null)} />}
       </div>
     </div>
   );
