@@ -1,13 +1,22 @@
 import React, { createContext, useContext, useState, useCallback, useRef } from 'react';
 import { initialJobHistory } from '../data/mockData.jsx';
 import { getJobs } from '../../api/jobapi.js';
+import { getStats } from '../../api/dashboardapi.js';
 
 const AppContext = createContext(null);
 
 export function AppProvider({ children }) {
-  const [currentPage,  setCurrentPage]  = useState('home');
-  const [dashSection,  setDashSection]  = useState('overview');
-  const [navStack,     setNavStack]     = useState([{ page: 'home', dashSection: 'overview' }]);
+  const hasWindow = typeof window !== 'undefined';
+  const savedToken = hasWindow ? localStorage.getItem('access_token') : null;
+  const savedPage = hasWindow ? localStorage.getItem('recruit-current-page') : null;
+  const savedDash = hasWindow ? localStorage.getItem('recruit-dash-section') : null;
+
+  const initialPage = savedToken ? (savedPage || 'dashboard') : 'home';
+  const initialDash = savedDash || 'overview';
+
+  const [currentPage,  setCurrentPage]  = useState(initialPage);
+  const [dashSection,  setDashSection]  = useState(initialDash);
+  const [navStack,     setNavStack]     = useState([{ page: initialPage, dashSection: initialDash }]);
   const [pendingEmail, setPendingEmail] = useState(null);
   const [pendingCode,  setPendingCode]  = useState(null);
   const [toasts,       setToasts]       = useState([]);
@@ -15,6 +24,8 @@ export function AppProvider({ children }) {
   const [jobHistory,   setJobHistory]   = useState(initialJobHistory);
   const [jobs,         setJobs]         = useState([]);
   const [jobsLoading,  setJobsLoading]  = useState(false);
+  const [dashboardStats, setDashboardStats] = useState(null);
+  const [statsLoading, setStatsLoading] = useState(false);
   const toastId = useRef(0);
 
   const [theme, setTheme] = useState(() => {
@@ -52,6 +63,11 @@ export function AppProvider({ children }) {
 
   const navigate = useCallback((page) => {
     setCurrentPage(page);
+    setDashSection('overview');
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('recruit-current-page', page);
+      localStorage.setItem('recruit-dash-section', 'overview');
+    }
     pushNav({ page, dashSection: 'overview' });
     window.scrollTo(0, 0);
   }, [pushNav]);
@@ -59,6 +75,10 @@ export function AppProvider({ children }) {
   const showDash = useCallback((section) => {
     setCurrentPage('dashboard');
     setDashSection(section);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('recruit-current-page', 'dashboard');
+      localStorage.setItem('recruit-dash-section', section);
+    }
     pushNav({ page: 'dashboard', dashSection: section });
     window.scrollTo(0, 0);
   }, [pushNav]);
@@ -72,6 +92,10 @@ export function AppProvider({ children }) {
       const target = nextStack[nextStack.length - 1];
       setCurrentPage(target.page);
       setDashSection(target.dashSection || 'overview');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('recruit-current-page', target.page);
+        localStorage.setItem('recruit-dash-section', target.dashSection || 'overview');
+      }
       window.scrollTo(0, 0);
       return nextStack;
     });
@@ -79,9 +103,19 @@ export function AppProvider({ children }) {
 
   /* ---------- auth ---------- */
   const logout = useCallback(() => {
-    navigate('home');
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('recruit-current-page');
+    localStorage.removeItem('recruit-dash-section');
+    setJobs([]);
+    setDashboardStats(null);
+    setPendingEmail(null);
+    setPendingCode(null);
+    setModal(null);
+    setNavStack([{ page: 'home', dashSection: 'overview' }]);
+    setDashSection('overview');
+    setCurrentPage('home');
     showToast('Logged out successfully', 'info');
-  }, [navigate, showToast]);
+  }, [showToast]);
 
   const doLogin = useCallback(() => {
     navigate('dashboard');
@@ -113,6 +147,17 @@ export function AppProvider({ children }) {
     }
   }, []);
 
+  const refreshStats = useCallback(async () => {
+    setStatsLoading(true);
+    try {
+      const data = await getStats();
+      setDashboardStats(data || null);
+      return data;
+    } finally {
+      setStatsLoading(false);
+    }
+  }, []);
+
   /* ---------- history ---------- */
   const addJobHistory = useCallback((job) => {
     setJobHistory(p => [job, ...p]);
@@ -131,6 +176,7 @@ export function AppProvider({ children }) {
       pendingEmail, pendingCode,
       startEmailFlow, setEmailCode, clearEmailFlow,
       jobs, jobsLoading, refreshJobs,
+      dashboardStats, statsLoading, refreshStats,
     }}>
       {children}
     </AppContext.Provider>

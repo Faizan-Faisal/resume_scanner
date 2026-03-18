@@ -4,8 +4,7 @@ import JobCard from '../components/JobCard.jsx';
 import Badge from '../components/Badge.jsx';
 
 export default function OverviewSection() {
-  const { showDash, setModal, jobs, jobsLoading } = useApp();
-  const activeJobs = (jobs || []).filter(j => (j.status || '').toLowerCase() !== 'closed');
+  const { showDash, setModal, jobs, jobsLoading, dashboardStats, statsLoading } = useApp();
   const recentJobs = (jobs || []).slice(0, 3);
 
   return (
@@ -18,10 +17,10 @@ export default function OverviewSection() {
       {/* Stat cards */}
       <div className="grid gap-5 mb-12" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(180px,1fr))' }}>
         {[
-          { label: 'Total Jobs', value: String((jobs || []).length), change: 'From your account' },
-          { label: 'Active Jobs', value: String(activeJobs.length), change: 'Not closed yet' },
-          { label: 'Resumes Scanned', value: '—', change: 'Coming soon' },
-          { label: 'Avg. Score', value: '—', change: 'Coming soon' },
+          { label: 'Total Jobs', value: statsLoading ? '…' : String(dashboardStats?.total_jobs ?? '—'), change: 'From your account' },
+          { label: 'Active Jobs', value: statsLoading ? '…' : String(dashboardStats?.active_jobs ?? '—'), change: 'Not closed yet' },
+          { label: 'Resumes Scanned', value: statsLoading ? '…' : String(dashboardStats?.resumes_scanned ?? '—'), change: 'From completed scans' },
+          { label: 'Avg. Score', value: statsLoading ? '…' : (dashboardStats?.avg_score ?? '—'), change: 'Across completed scans' },
         ].map(s => (
           <div
             key={s.label}

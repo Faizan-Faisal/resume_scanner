@@ -8,13 +8,16 @@ import ScanningSection from './sections/ScanningSection.jsx';
 import NewJobSection from './sections/NewJobSection.jsx';
 
 export default function DashboardPage() {
-  const { dashSection, refreshJobs, showToast } = useApp();
+  const { dashSection, refreshJobs, refreshStats, showToast } = useApp();
 
   useEffect(() => {
     refreshJobs().catch(() => {
       showToast('Failed to load jobs. Please login again.', 'error');
     });
-  }, [refreshJobs, showToast]);
+    refreshStats().catch(() => {
+      showToast('Failed to load dashboard stats.', 'error');
+    });
+  }, [refreshJobs, refreshStats, showToast]);
 
   return (
     <div className="flex min-h-screen pt-[70px] animate-fade-in" style={{ background: 'var(--bg)' }}>
