@@ -3,9 +3,11 @@ import { AppProvider, useApp } from './context/AppContext.jsx';
 import Navbar from './components/Navbar.jsx';
 import Toast from './components/Toast.jsx';
 import Modal from './components/Modal.jsx';
-import HomePage from './pages/HomePage.jsx';
-import { LoginPage, SignupPage, ForgotPage } from './pages/AuthPages.jsx';
-import DashboardPage from './pages/DashboardPage.jsx';
+import HomePage from './pages/home/HomePage.jsx';
+import LoginPage from './pages/auth/LoginPage.jsx';
+import SignupPage from './pages/auth/SignupPage.jsx';
+import ForgotPage from './pages/auth/ForgotPage.jsx';
+import DashboardPage from './pages/dashboard/DashboardPage.jsx';
 
 
 function Router() {

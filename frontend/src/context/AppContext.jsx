@@ -6,6 +6,7 @@ const AppContext = createContext(null);
 export function AppProvider({ children }) {
   const [currentPage,  setCurrentPage]  = useState('home');
   const [dashSection,  setDashSection]  = useState('overview');
+  const [navStack,     setNavStack]     = useState([{ page: 'home', dashSection: 'overview' }]);
   const [toasts,       setToasts]       = useState([]);
   const [modal,        setModal]        = useState(null);
   const [jobHistory,   setJobHistory]   = useState(initialJobHistory);
@@ -36,15 +37,39 @@ export function AppProvider({ children }) {
   }, [showToast]);
 
   /* ---------- navigation ---------- */
+  const pushNav = useCallback((next) => {
+    setNavStack(prev => {
+      const last = prev[prev.length - 1];
+      const same = last?.page === next.page && last?.dashSection === next.dashSection;
+      return same ? prev : [...prev, next];
+    });
+  }, []);
+
   const navigate = useCallback((page) => {
     setCurrentPage(page);
+    pushNav({ page, dashSection: 'overview' });
     window.scrollTo(0, 0);
-  }, []);
+  }, [pushNav]);
 
   const showDash = useCallback((section) => {
     setCurrentPage('dashboard');
     setDashSection(section);
+    pushNav({ page: 'dashboard', dashSection: section });
     window.scrollTo(0, 0);
+  }, [pushNav]);
+
+  const canGoBack = navStack.length > 1;
+
+  const goBack = useCallback(() => {
+    setNavStack(prev => {
+      if (prev.length <= 1) return prev;
+      const nextStack = prev.slice(0, -1);
+      const target = nextStack[nextStack.length - 1];
+      setCurrentPage(target.page);
+      setDashSection(target.dashSection || 'overview');
+      window.scrollTo(0, 0);
+      return nextStack;
+    });
   }, []);
 
   /* ---------- auth ---------- */
@@ -67,6 +92,7 @@ export function AppProvider({ children }) {
     <AppContext.Provider value={{
       currentPage, navigate,
       dashSection, showDash,
+      canGoBack, goBack,
       theme, toggleTheme,
       toasts, showToast,
       modal, setModal,

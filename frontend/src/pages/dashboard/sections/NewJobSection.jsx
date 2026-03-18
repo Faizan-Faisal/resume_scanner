@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useApp } from '../context/AppContext.jsx';
-import ScanView from './ScanView.jsx';
+import { useApp } from '../../../context/AppContext.jsx';
+import ScanView from '../../../components/ScanView.jsx';
 
 /* ── reusable input/textarea ── */
 const inp = "w-full rounded-lg px-4 py-3 text-sm outline-none border transition-all duration-200 font-dm";
@@ -112,9 +112,15 @@ export default function NewJobSection() {
 
           <div className="mb-5">
             <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text2)' }}>Job Title *</label>
-            <input className={inp} style={inpStyle} placeholder="e.g. Senior Software Engineer"
-              value={jobTitle} onChange={e => setJobTitle(e.target.value)}
-              onFocus={inpFocus} onBlur={inpBlur} />
+            <input
+              className={inp}
+              style={inpStyle}
+              placeholder="e.g. Senior Software Engineer"
+              value={jobTitle}
+              onChange={e => setJobTitle(e.target.value)}
+              onFocus={inpFocus}
+              onBlur={inpBlur}
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-4 mb-5">
@@ -128,18 +134,28 @@ export default function NewJobSection() {
 
           <div className="mb-5">
             <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text2)' }}>Job Description *</label>
-            <textarea className={`${inp} resize-y min-h-[120px]`} style={inpStyle}
+            <textarea
+              className={`${inp} resize-y min-h-[120px]`}
+              style={inpStyle}
               placeholder="Paste the full job description here. Be specific about requirements."
-              rows={5} value={jobDesc} onChange={e => setJobDesc(e.target.value)}
-              onFocus={inpFocus} onBlur={inpBlur} />
+              rows={5}
+              value={jobDesc}
+              onChange={e => setJobDesc(e.target.value)}
+              onFocus={inpFocus}
+              onBlur={inpBlur}
+            />
           </div>
 
           {/* Weightage */}
           <div className="mb-5">
             <label className="flex items-center gap-2 text-sm font-medium mb-2" style={{ color: 'var(--text2)' }}>
               Optional Weightage
-              <span className="px-2 py-0.5 rounded-full text-[0.65rem] font-medium"
-                style={{ background: 'rgba(79,126,255,0.1)', color: 'var(--accent)' }}>Optional</span>
+              <span
+                className="px-2 py-0.5 rounded-full text-[0.65rem] font-medium"
+                style={{ background: 'rgba(79,126,255,0.1)', color: 'var(--accent)' }}
+              >
+                Optional
+              </span>
             </label>
             <div className="rounded-xl p-5 border" style={{ background: 'var(--bg3)', borderColor: 'var(--border)' }}>
               <p className="text-xs mb-4 leading-relaxed" style={{ color: 'var(--text2)' }}>
@@ -147,12 +163,21 @@ export default function NewJobSection() {
                 <strong style={{ color: 'var(--text)' }}>Experience</strong>. Combined total cannot exceed{' '}
                 <strong style={{ color: 'var(--accent2)' }}>0.7</strong>.
               </p>
-              {[['🛠 Skills', skillW, (v) => { const s = parseFloat(v); setSkillW(s); clampExp(s); }],
-                ['📈 Experience', expW, (v) => { const e = parseFloat(v); setExpW(e); clampSkill(e); }]].map(([label, val, handler]) => (
+              {[
+                ['🛠 Skills', skillW, (v) => { const s = parseFloat(v); setSkillW(s); clampExp(s); }],
+                ['📈 Experience', expW, (v) => { const e = parseFloat(v); setExpW(e); clampSkill(e); }],
+              ].map(([label, val, handler]) => (
                 <div key={label} className="flex items-center gap-4 mb-4">
                   <span className="text-sm w-28 shrink-0" style={{ color: 'var(--text2)' }}>{label}</span>
-                  <input type="range" className="weight-slider flex-1" min="0" max="0.7" step="0.05"
-                    value={val} onChange={e => handler(e.target.value)} />
+                  <input
+                    type="range"
+                    className="weight-slider flex-1"
+                    min="0"
+                    max="0.7"
+                    step="0.05"
+                    value={val}
+                    onChange={e => handler(e.target.value)}
+                  />
                   <span className="font-syne font-bold text-base w-11 text-right" style={{ color: 'var(--text)' }}>
                     {parseFloat(val).toFixed(2)}
                   </span>
@@ -195,11 +220,12 @@ export default function NewJobSection() {
           {/* Upload tabs */}
           <div className="flex p-1 rounded-xl border w-fit mb-6" style={{ background: 'var(--bg3)', borderColor: 'var(--border)' }}>
             {[['zip','📦 ZIP File'],['drive','☁️ Google Drive']].map(([id, label]) => (
-              <button key={id}
+              <button
+                key={id}
                 className="px-5 py-2 rounded-lg text-sm font-dm transition-all duration-200 cursor-pointer border-none"
                 style={{
                   background: uploadTab === id ? 'var(--accent)' : 'transparent',
-                  color:      uploadTab === id ? '#fff'           : 'var(--text2)',
+                  color: uploadTab === id ? '#fff' : 'var(--text2)',
                   fontWeight: uploadTab === id ? 500 : 400,
                 }}
                 onClick={() => setUploadTab(id)}
@@ -216,7 +242,7 @@ export default function NewJobSection() {
                 className={`border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all duration-300 ${dragging ? 'opacity-100' : ''}`}
                 style={{
                   borderColor: dragging ? 'var(--accent)' : 'rgba(79,126,255,0.3)',
-                  background:  dragging ? 'rgba(79,126,255,0.05)' : 'rgba(79,126,255,0.02)',
+                  background: dragging ? 'rgba(79,126,255,0.05)' : 'rgba(79,126,255,0.02)',
                 }}
                 onDragOver={e => { e.preventDefault(); setDragging(true); }}
                 onDragLeave={() => setDragging(false)}
@@ -225,23 +251,37 @@ export default function NewJobSection() {
               >
                 <div className="text-5xl mb-4 animate-float">📂</div>
                 <div className="font-medium mb-1" style={{ color: 'var(--text)' }}>Drop your ZIP file here</div>
-                <div className="text-sm" style={{ color: 'var(--text2)' }}>or click to browse — accepts .zip files containing PDF, DOC, DOCX resumes</div>
-                <input type="file" id="fileInput" accept=".zip" className="hidden"
-                  onChange={e => { const f = e.target.files[0]; if (f) addFile(f); }} />
+                <div className="text-sm" style={{ color: 'var(--text2)' }}>
+                  or click to browse — accepts .zip files containing PDF, DOC, DOCX resumes
+                </div>
+                <input
+                  type="file"
+                  id="fileInput"
+                  accept=".zip"
+                  className="hidden"
+                  onChange={e => { const f = e.target.files[0]; if (f) addFile(f); }}
+                />
               </div>
               {files.length > 0 && (
                 <div className="mt-4 flex flex-col gap-2">
                   {files.map((f, i) => (
-                    <div key={i} className="flex items-center gap-3 px-4 py-3 rounded-lg border text-sm"
-                      style={{ background: 'var(--bg3)', borderColor: 'var(--border)' }}>
+                    <div
+                      key={i}
+                      className="flex items-center gap-3 px-4 py-3 rounded-lg border text-sm"
+                      style={{ background: 'var(--bg3)', borderColor: 'var(--border)' }}
+                    >
                       <span>📦</span>
                       <span className="flex-1" style={{ color: 'var(--text)' }}>{f.name}</span>
                       <span className="text-xs" style={{ color: 'var(--text3)' }}>{fmtSize(f.size || 2400000)}</span>
-                      <button className="bg-none border-none cursor-pointer text-base" style={{ color: 'var(--text3)' }}
+                      <button
+                        className="bg-none border-none cursor-pointer text-base"
+                        style={{ color: 'var(--text3)' }}
                         onClick={() => setFiles([])}
                         onMouseEnter={e => e.currentTarget.style.color = 'var(--accent3)'}
                         onMouseLeave={e => e.currentTarget.style.color = 'var(--text3)'}
-                      >✕</button>
+                      >
+                        ✕
+                      </button>
                     </div>
                   ))}
                 </div>
@@ -252,42 +292,59 @@ export default function NewJobSection() {
           {/* Drive upload */}
           {uploadTab === 'drive' && (
             <>
-              <div className="rounded-xl p-5 mb-5 text-sm leading-relaxed border"
-                style={{ background: 'rgba(79,126,255,0.05)', borderColor: 'rgba(79,126,255,0.15)', color: 'var(--text2)' }}>
+              <div
+                className="rounded-xl p-5 mb-5 text-sm leading-relaxed border"
+                style={{ background: 'rgba(79,126,255,0.05)', borderColor: 'rgba(79,126,255,0.15)', color: 'var(--text2)' }}
+              >
                 <strong style={{ color: 'var(--text)' }}>📋 How to share your Drive folder:</strong><br />
                 Open Google Drive → Right-click folder → "Share" → "Anyone with link can view" → Copy link and paste below.
               </div>
               <div className="flex gap-3 items-end">
                 <div className="flex-1">
                   <label className="block text-sm font-medium mb-2" style={{ color: 'var(--text2)' }}>Google Drive Folder URL</label>
-                  <input className={inp} style={inpStyle}
+                  <input
+                    className={inp}
+                    style={inpStyle}
                     placeholder="https://drive.google.com/drive/folders/..."
-                    value={driveUrl} onChange={e => setDriveUrl(e.target.value)}
-                    onFocus={inpFocus} onBlur={inpBlur} />
+                    value={driveUrl}
+                    onChange={e => setDriveUrl(e.target.value)}
+                    onFocus={inpFocus}
+                    onBlur={inpBlur}
+                  />
                 </div>
-                <button className="px-5 py-3 rounded-lg text-white text-sm font-medium border-none cursor-pointer"
-                  style={{ background: 'var(--accent)' }} onClick={validateDrive}>
+                <button
+                  className="px-5 py-3 rounded-lg text-white text-sm font-medium border-none cursor-pointer"
+                  style={{ background: 'var(--accent)' }}
+                  onClick={validateDrive}
+                >
                   Validate
                 </button>
               </div>
               {driveStatus && (
                 <div className="mt-3 text-sm">
                   {driveStatus === 'validating' && <span style={{ color: 'var(--text2)' }}>⏳ Validating...</span>}
-                  {driveStatus === 'valid'      && <span style={{ color: 'var(--accent2)' }}>✓ Folder validated — 38 resumes found.</span>}
-                  {driveStatus === 'error'      && <span style={{ color: 'var(--accent3)' }}>✗ Invalid Google Drive URL.</span>}
+                  {driveStatus === 'valid' && <span style={{ color: 'var(--accent2)' }}>✓ Folder validated — 38 resumes found.</span>}
+                  {driveStatus === 'error' && <span style={{ color: 'var(--accent3)' }}>✗ Invalid Google Drive URL.</span>}
                 </div>
               )}
             </>
           )}
 
           <div className="flex justify-between mt-8">
-            <button className="px-5 py-2.5 rounded-lg border bg-transparent font-medium cursor-pointer transition-all duration-200"
+            <button
+              className="px-5 py-2.5 rounded-lg border bg-transparent font-medium cursor-pointer transition-all duration-200"
               style={{ borderColor: 'var(--border2)', color: 'var(--text2)' }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border2)'; e.currentTarget.style.color = 'var(--text2)'; }}
-              onClick={() => setStep(1)}>← Back</button>
-            <button className="px-8 py-3 rounded-xl text-white font-medium border-none cursor-pointer"
-              style={{ background: 'var(--accent2)' }} onClick={startScan}>
+              onClick={() => setStep(1)}
+            >
+              ← Back
+            </button>
+            <button
+              className="px-8 py-3 rounded-xl text-white font-medium border-none cursor-pointer"
+              style={{ background: 'var(--accent2)' }}
+              onClick={startScan}
+            >
               Start Scanning ⚡
             </button>
           </div>
@@ -296,3 +353,4 @@ export default function NewJobSection() {
     </>
   );
 }
+

@@ -2,7 +2,7 @@ import React from 'react';
 import { useApp } from '../context/AppContext.jsx';
 
 export default function Navbar() {
-  const { currentPage, navigate, theme, toggleTheme, logout } = useApp();
+  const { currentPage, navigate, canGoBack, goBack, theme, toggleTheme, logout } = useApp();
   const isDash = currentPage === 'dashboard';
   const isDark = theme === 'dark';
 
@@ -13,17 +13,37 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 h-[70px] border-b border-[var(--border)] backdrop-blur-[20px] transition-all duration-300"
       style={{ background: 'var(--nav-bg)' }}
     >
-      {/* Logo */}
-      <div
-        className="flex items-center gap-2 cursor-pointer font-syne text-[1.4rem] font-extrabold"
-        style={{ color: 'var(--text)' }}
-        onClick={() => isDash ? logout() : navigate('home')}
-      >
-        <span
-          className="w-2 h-2 rounded-full animate-dot-pulse"
-          style={{ background: 'var(--accent)' }}
-        />
-        RecruitAI
+      <div className="flex items-center gap-3">
+        {/* Back */}
+        <button
+          className="w-9 h-9 rounded-lg border bg-transparent cursor-pointer transition-all duration-200 flex items-center justify-center"
+          style={{
+            borderColor: 'var(--border2)',
+            color: canGoBack ? 'var(--text2)' : 'var(--text3)',
+            opacity: canGoBack ? 1 : 0.5,
+            pointerEvents: canGoBack ? 'auto' : 'none',
+          }}
+          onMouseEnter={e => { if (canGoBack) { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; } }}
+          onMouseLeave={e => { if (canGoBack) { e.currentTarget.style.borderColor = 'var(--border2)'; e.currentTarget.style.color = 'var(--text2)'; } }}
+          onClick={goBack}
+          aria-label="Go back"
+          title="Back"
+        >
+          ←
+        </button>
+
+        {/* Logo */}
+        <div
+          className="flex items-center gap-2 cursor-pointer font-syne text-[1.4rem] font-extrabold"
+          style={{ color: 'var(--text)' }}
+          onClick={() => isDash ? logout() : navigate('home')}
+        >
+          <span
+            className="w-2 h-2 rounded-full animate-dot-pulse"
+            style={{ background: 'var(--accent)' }}
+          />
+          RecruitAI
+        </div>
       </div>
 
       {/* Center links (home only) */}
