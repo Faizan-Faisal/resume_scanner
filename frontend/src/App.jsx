@@ -7,6 +7,8 @@ import HomePage from './pages/home/HomePage.jsx';
 import LoginPage from './pages/auth/LoginPage.jsx';
 import SignupPage from './pages/auth/SignupPage.jsx';
 import ForgotPage from './pages/auth/ForgotPage.jsx';
+import VerifyCodePage from './pages/auth/VerifyCodePage.jsx';
+import ResetCodePage from './pages/auth/ResetCodePage.jsx';
 import DashboardPage from './pages/dashboard/DashboardPage.jsx';
 
 
@@ -19,6 +21,8 @@ function Router() {
       {currentPage === 'login'     && <LoginPage />}
       {currentPage === 'signup'    && <SignupPage />}
       {currentPage === 'forgot'    && <ForgotPage />}
+      {currentPage === 'verify'    && <VerifyCodePage />}
+      {currentPage === 'reset-code'&& <ResetCodePage />}
       {currentPage === 'dashboard' && <DashboardPage />}
       <Toast />
       <Modal />

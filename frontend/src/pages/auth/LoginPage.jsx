@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
 import AuthLayout from './AuthLayout.jsx';
 import { inp, inpBlur, inpFocus } from './authStyles.js';
+import { login } from '../../../api/authapi.js';
 
 export default function LoginPage() {
-  const { navigate, doLogin, showToast } = useApp();
+  const { navigate, showToast } = useApp();
   const [email, setEmail] = useState('');
   const [pw, setPw] = useState('');
+  const [loading, setLoading] = useState(false);
 
   return (
     <AuthLayout>
@@ -51,10 +53,23 @@ export default function LoginPage() {
 
       <button
         className="w-full py-3 rounded-xl text-white font-medium border-none cursor-pointer transition-all duration-200 mb-5"
-        style={{ background: 'var(--accent)' }}
-        onClick={doLogin}
+        style={{ background: 'var(--accent)', opacity: loading ? 0.8 : 1 }}
+        onClick={async () => {
+          if (!email.trim()) { showToast('Please enter your email', 'error'); return; }
+          if (!pw.trim()) { showToast('Please enter your password', 'error'); return; }
+          setLoading(true);
+          try {
+            await login({ email: email.trim(), password: pw });
+            showToast('Logged in successfully', 'success');
+            navigate('dashboard');
+          } catch (e) {
+            showToast(e?.response?.data?.detail || 'Login failed', 'error');
+          } finally {
+            setLoading(false);
+          }
+        }}
       >
-        Sign in
+        {loading ? 'Signing in...' : 'Sign in'}
       </button>
 
       <div className="flex items-center gap-4 my-5">

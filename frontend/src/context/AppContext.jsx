@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useCallback, useRef } from 'react';
 import { initialJobHistory } from '../data/mockData.jsx';
+import { getJobs } from '../../api/jobapi.js';
 
 const AppContext = createContext(null);
 
@@ -7,9 +8,13 @@ export function AppProvider({ children }) {
   const [currentPage,  setCurrentPage]  = useState('home');
   const [dashSection,  setDashSection]  = useState('overview');
   const [navStack,     setNavStack]     = useState([{ page: 'home', dashSection: 'overview' }]);
+  const [pendingEmail, setPendingEmail] = useState(null);
+  const [pendingCode,  setPendingCode]  = useState(null);
   const [toasts,       setToasts]       = useState([]);
   const [modal,        setModal]        = useState(null);
   const [jobHistory,   setJobHistory]   = useState(initialJobHistory);
+  const [jobs,         setJobs]         = useState([]);
+  const [jobsLoading,  setJobsLoading]  = useState(false);
   const toastId = useRef(0);
 
   const [theme, setTheme] = useState(() => {
@@ -83,6 +88,31 @@ export function AppProvider({ children }) {
     showToast('Welcome back, Sarah! 👋', 'success');
   }, [navigate, showToast]);
 
+  const startEmailFlow = useCallback((email) => {
+    setPendingEmail(email);
+    setPendingCode(null);
+  }, []);
+
+  const setEmailCode = useCallback((code) => {
+    setPendingCode(code);
+  }, []);
+
+  const clearEmailFlow = useCallback(() => {
+    setPendingEmail(null);
+    setPendingCode(null);
+  }, []);
+
+  const refreshJobs = useCallback(async () => {
+    setJobsLoading(true);
+    try {
+      const data = await getJobs();
+      setJobs(Array.isArray(data) ? data : []);
+      return data;
+    } finally {
+      setJobsLoading(false);
+    }
+  }, []);
+
   /* ---------- history ---------- */
   const addJobHistory = useCallback((job) => {
     setJobHistory(p => [job, ...p]);
@@ -98,6 +128,9 @@ export function AppProvider({ children }) {
       modal, setModal,
       jobHistory, addJobHistory,
       logout, doLogin,
+      pendingEmail, pendingCode,
+      startEmailFlow, setEmailCode, clearEmailFlow,
+      jobs, jobsLoading, refreshJobs,
     }}>
       {children}
     </AppContext.Provider>
